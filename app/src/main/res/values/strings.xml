@@ -15,6 +15,4 @@
     <string name="fecha_de_registro">Fecha de registro</string>
     <string name="camper">Camper</string>
     <string name="sexo">Sexo</string>
-    <string name="negativo">Negativo</string>
-    <string name="positivo">Positivo</string>
 </resources>

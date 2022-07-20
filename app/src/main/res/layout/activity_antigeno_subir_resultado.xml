@@ -17,11 +17,11 @@
         tools:layout_editor_absoluteX="20dp">
 
         <Button
-            android:id="@+id/NegativoButton"
+            android:id="@+id/Negativo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:backgroundTint="#29A50E"
-            android:text="@string/negativo"
+            android:text="Negativo"
             android:textSize="25sp"
             android:textColor="@color/white"
             android:textStyle="bold" />
@@ -42,16 +42,14 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
 
         <Button
-            android:id="@+id/PositivoButton"
+            android:id="@+id/positivo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:backgroundTint="#C61616"
-            android:shadowRadius="4"
-            android:text="@string/positivo"
+            android:text="Positivo"
             android:textColor="@color/white"
-            android:textIsSelectable="false"
             android:textSize="25sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
     </LinearLayout>
     <LinearLayout
