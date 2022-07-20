@@ -24,9 +24,6 @@
             android:name=".procesar_paciente"
             android:exported="false" />
         <activity
-            android:name=".monitoreo.MONITOREO_Formato"
-            android:exported="false" />
-        <activity
             android:name=".sharedpreference.ResultActivity"
             android:exported="false" />
         <activity
@@ -36,19 +33,7 @@
             android:name=".Login"
             android:exported="false" />
         <activity
-            android:name=".monitoreo.MONITOREO_Agregar_Trabajador"
-            android:exported="false" />
-        <activity
             android:name=".monitoreo.MONITOREO_Cuestionario_Formulario"
-            android:exported="false" />
-        <activity
-            android:name=".monitoreo.MONITOREO_Cuestionario"
-            android:exported="false" />
-        <activity
-            android:name=".monitoreo.MONITOREO_signos_formulario"
-            android:exported="false" />
-        <activity
-            android:name=".monitoreo.MONITOREO_Signos_Vitales"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
