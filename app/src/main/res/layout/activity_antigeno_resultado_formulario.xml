@@ -5,10 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
-    android:windowActivityTransitions="true"
-    tools:context=".ANTIGENO.ANTIGENO_subir_resultado">
-
-
+    tools:context=".ANTIGENO.ANTIGENO_resultado_formulario">
 
     <LinearLayout
         android:id="@+id/linearLayout5"
@@ -32,8 +29,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:text="Registrar Resultado"
             android:textColor="@color/white"
             android:textSize="30sp" />
@@ -57,50 +52,41 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/PositivoLayout"
-        android:layout_width="0dp"
-        android:layout_height="90dp"
-        android:layout_margin="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:orientation="vertical"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="59dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
-
-        <Button
-            android:id="@+id/PositivoButton"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:backgroundTint="#C61616"
-            android:text="Positivo"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-    <ScrollView
-        android:id="@+id/scrollView4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/NegativoLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PositivoLayout"
-        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:orientation="vertical">
 
+
             <TextView
+                android:id="@+id/dialogResultado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingTop="3dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="5dp"
+                android:text="Resultado"
+                android:textColor="@color/black"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                android:tooltipText="Nombre del Paciente" />
+
+            <TextView
+                android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorFondoOscuro"
@@ -114,14 +100,15 @@
                 android:tooltipText="Nombre del Paciente" />
 
             <TextView
-                android:id="@+id/textNombrePasiente"
+                android:id="@+id/textNombrePasiente2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:text="@string/nombre_paciente"
                 android:textColor="@color/black"
-                android:textSize="23sp"
-                android:tooltipText="Nombre del Paciente" />
+                android:textSize="23sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -131,19 +118,30 @@
                 android:paddingTop="5dp"
                 android:paddingRight="20dp"
                 android:paddingBottom="5dp"
-                android:text="@string/procedencia"
+                android:text="@string/fecha_de_toma"
                 android:textColor="@color/white"
                 android:textSize="23sp"
                 android:tooltipText="Nombre del Paciente" />
 
-            <TextView
+            <EditText
+                style="@style/Widget.AppCompat.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="@string/procedencia"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="15dp"
+                android:clickable="false"
+                android:ems="10"
+                android:focusable="false"
+                android:gravity="center"
+                android:hint="@string/selecciona_el_dia"
+                android:inputType="date"
+                android:selectAllOnFocus="false"
+                android:singleLine="false"
                 android:textColor="@color/black"
-                android:textSize="23sp"
-                android:tooltipText="Procedencia del paciente" />
+                android:theme="@style/OulineInput"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -153,19 +151,54 @@
                 android:paddingTop="5dp"
                 android:paddingRight="20dp"
                 android:paddingBottom="5dp"
-                android:text="@string/fecha_de_registro"
+                android:text="@string/fecha_de_muestra"
                 android:textColor="@color/white"
                 android:textSize="23sp"
                 android:tooltipText="Nombre del Paciente" />
 
+            <EditText
+                style="@style/Widget.AppCompat.EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="15dp"
+                android:clickable="false"
+                android:ems="10"
+                android:focusable="false"
+                android:gravity="center"
+                android:hint="@string/selecciona_el_dia"
+                android:inputType="date"
+                android:selectAllOnFocus="false"
+                android:singleLine="false"
+                android:textColor="@color/black"
+                android:theme="@style/OulineInput"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="@string/fecha_de_registro"
-                android:textColor="@color/black"
+                android:background="@color/colorFondoOscuro"
+                android:paddingLeft="20dp"
+                android:paddingTop="5dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="5dp"
+                android:text="@string/tipo_de_muestra"
+                android:textColor="@color/white"
                 android:textSize="23sp"
-                android:tooltipText="Procedencia del paciente" />
+                android:tooltipText="Nombre del Paciente" />
+
+            <Spinner
+                android:id="@+id/spinnerTrabajador"
+                style="@android:style/Widget.DeviceDefault.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="41dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="15dp"
+                android:dropDownWidth="match_parent"
+                android:spinnerMode="dialog" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -175,59 +208,23 @@
                 android:paddingTop="5dp"
                 android:paddingRight="20dp"
                 android:paddingBottom="5dp"
-                android:text="@string/camper"
+                android:text="@string/clave"
                 android:textColor="@color/white"
-                android:textSize="23sp" />
+                android:textSize="23sp"
+                android:tooltipText="Nombre del Paciente" />
 
-            <TextView
+            <EditText
+                android:id="@+id/signosAlcoholimetria"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/camper"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="15dp"
+                android:gravity="center"
+                android:inputType=""
                 android:textColor="@color/black"
-                android:layout_marginBottom="10dp"
-                android:textSize="23sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorFondoOscuro"
-                android:paddingLeft="20dp"
-                android:paddingTop="5dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="5dp"
-                android:text="@string/sexo"
-                android:textColor="@color/white"
-                android:textSize="23sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/sexo"
-                android:textColor="@color/black"
-                android:textSize="23sp" />
-
+                android:theme="@style/OulineInput" />
         </LinearLayout>
     </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/NegativoLayout"
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:layout_margin="20dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="20dp">
-
-        <Button
-            android:id="@+id/NegativoButton"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:backgroundTint="#29A50E"
-            android:text="Negativo"
-            android:textSize="25sp"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

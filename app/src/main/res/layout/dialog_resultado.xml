@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="5dp"
+    android:background="@color/backgroundColorOscuro"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/DialogResultado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorFondoOscuro"
+        android:paddingLeft="20dp"
+        android:paddingTop="3dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="Resultado"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:tooltipText="Nombre del Paciente" />
+
+    <TextView
+        android:id="@+id/txtDialogAviso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="@string/resultadoAlert"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/txtDialogNombrePaciente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:text="@string/nombre_paciente"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/txtDialogEdad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Edad"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/txtDialogProcedencia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="@string/procedencia"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorFondoOscuro"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnDialogCancelar"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimaryVariant"
+            android:gravity="center"
+            android:text="@string/cancelar"
+            android:textSize="18sp"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btnDialogAceptar"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimaryVariant"
+            android:gravity="center"
+            android:text="@string/si_aceptar"
+            android:textSize="18sp"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</LinearLayout>
