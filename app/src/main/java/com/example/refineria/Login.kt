@@ -24,8 +24,8 @@ class Login : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         checkUserValues()
         initUI()
-        txtPassword.filters = arrayOf<InputFilter>(AllCaps())
-        txtUsuario.filters = arrayOf<InputFilter>(AllCaps())
+        //txtPassword.filters = arrayOf<InputFilter>(AllCaps())
+        //txtUsuario.filters = arrayOf<InputFilter>(AllCaps())
     }
 
     fun checkUserValues(){
@@ -38,43 +38,42 @@ class Login : AppCompatActivity() {
         btnIniciarSesion.setOnClickListener{
             accessToDetail()
         }
-        syncUsers()
+        //syncUsers()
     }
 
     fun accessToDetail(){
         //Toast.makeText(this,"boton presionado de inicio",Toast.LENGTH_LONG).show()
         if(txtUsuario.text.toString().isNotEmpty() && txtPassword.text.toString().isNotEmpty()){
-            val url = "http://bimotest.com/api/monitoreo_usuario_session.php"
+            val url = "https://bimo-lab.com/movil/antigenos/api/login-api.php"
             val session = JSONObject()
             session.put("usuario",txtUsuario.text.toString())
             session.put("password", txtPassword.text.toString())
-            session.put("version","movil")
 
             val jsonObjectRequest = JsonObjectRequest(Request.Method.POST,url,session,
                 {
                         response ->
                     //Toast.makeText(this,"respuesta: ${response.toString()}",Toast.LENGTH_LONG).show()
                     Log.d("respuesta",response.toString())
+                    val json = response.getJSONObject("response");
+                    val codigo = json.getInt("code")
 
-
-                    val con= SQLite(this, "Refineria", null, 1)
-                    val database= con.writableDatabase
-
-
-                    val sqlFrentes2: String = "SELECT id_frente FROM monitoreo_paramedico_frentes WHERE paramedico = '${response.getString("id")}'"
-                    val rowFrentes = database.rawQuery(sqlFrentes2, null)
-
-                    if(rowFrentes.moveToNext()){
-                        prefs.saveName(txtUsuario.text.toString())
-                        prefs.savePassword(txtPassword.text.toString())
-                        prefs.saveId(response.getString("id"))
+                    if (codigo==1){
+                        val datos = json.getJSONObject("datos")
+                        prefs.saveIdUsuario(datos.getString("id_usuario"))
+                        prefs.saveIdCargoUsuario(datos.getString("id_cargo"))
+                        prefs.saveNombreUsuario(datos.getString("nombre"))
+                        prefs.saveTipoUsuario(datos.getString("tip_usuario"))
+                        prefs.saveUsernameUsuario(datos.getString("username"))
+                        prefs.savePuntoTrabajoUsuario(datos.getString("punto_trabajo_id"))
+                        prefs.saveLugarTomaUsuario(datos.getString("lugar_toma_id"))
                         goToDetail()
                     }else{
-                        Toast.makeText(this,"A este usuario le falta configurar sus frentes",Toast.LENGTH_LONG).show()
+                        Toast.makeText(this,"Error: Usuario y/o password incorrectos",Toast.LENGTH_LONG).show()
                     }
+
                 },{
                         error ->
-                    Toast.makeText(this,"Error: Usuario y/o password incorrectos",Toast.LENGTH_LONG).show()
+                    Toast.makeText(this,"Error: ${error.toString()}",Toast.LENGTH_LONG).show()
                     Log.d("error volley",error.toString())
                 })
             MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest)
@@ -84,34 +83,9 @@ class Login : AppCompatActivity() {
     }
 
     fun goToDetail(){
-        var usuario = prefs.getName()
+        var usuario = prefs.getUsernameUsuario()
         startActivity(Intent(this, MainActivity::class.java))
         Toast.makeText(this, "Bienvenido $usuario", Toast.LENGTH_LONG).show()
     }
 
-    fun syncUsers(){
-        val user = Usuarios()
-        user.downloadUsers(this)
-        val pafre = Pafre()
-        pafre.downloadPafres(this)
-        /*Toast.makeText(this,"Iniciando sincronizacion de usuarios", Toast.LENGTH_LONG).show()
-        val queue = Volley.newRequestQueue(this)
-        val url = "https://android-kotlin-fun-mars-server.appspot.com/photos"
-        val method = Request.Method.GET
-
-        // Request a string response from the provided URL.
-        val jsonObjectRequest = JsonArrayRequest(method, url, null,
-            { response ->
-
-                Toast.makeText(this,"response ${response.toString()/*response.getJSONObject(0).getString("id")*/}",Toast.LENGTH_LONG).show()
-                /**/
-            },
-            { error ->
-                // TODO: Handle error
-                Toast.makeText(this,"Error. ${error.toString()}",Toast.LENGTH_LONG).show()
-            }
-        )
-        // Add the request to the RequestQueue.
-        MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest)*/
-    }
 }

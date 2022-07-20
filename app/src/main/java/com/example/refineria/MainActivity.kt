@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        checkUserValues()
+        //checkUserValues()
 
 
 
@@ -42,35 +42,6 @@ class MainActivity : AppCompatActivity() {
             true
         }
     }
-
-
-    @SuppressLint("Range")
-    fun checkUserValues(){
-        if(prefs.getName().isNotEmpty()){
-            if (prefs.getNombre().isEmpty()){
-                val con= SQLite(this, "Refineria", null, 1)
-                val database= con.writableDatabase
-                var id = prefs.getId()
-
-                val sql: String = "SELECT * FROM monitoreo_usuarios WHERE id = ${id}"
-
-
-                val row = database!!.rawQuery(sql, null)
-                row.moveToFirst()
-
-                //val nombre = row.getString(row.getColumnIndex("nombre"))
-                prefs.saveNombre(row.getString(row.getColumnIndex("nombre")))
-                prefs.saveApellidos(row.getString(row.getColumnIndex("apellidos")))
-                prefs.saveEdad(row.getString(row.getColumnIndex("edad")))
-                prefs.saveSexo(row.getString(row.getColumnIndex("sexo")))
-                prefs.saveNss(row.getString(row.getColumnIndex("nss")))
-            }
-        }else{
-            startActivity(Intent(this, Login::class.java))
-            finish()
-        }
-    }
-
 
     private fun replaceFragment(fragment: Fragment){
         if (fragment != null){
