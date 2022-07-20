@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Bimo</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="biolog_a_molecular">Biología Molecular ®</string>
+    <string name="actualizar">Actualizar</string>
+    <string name="cerrar_sesi_n">Cerrar Sesión</string>
+    <string name="salir">Salir</string>
+    <string name="antigeno">Antigeno</string>
+    <string name="nombre_trabajador">Nombre trabajador</string>
+    <string name="frente">Frente</string>
+    <string name="procedencia">Procedencia</string>
+    <string name="segmento">Segmento</string>
+    <string name="nombre_paciente">Nombre paciente</string>
+    <string name="nombre">Nombre</string>
+    <string name="fecha_de_registro">Fecha de registro</string>
+    <string name="camper">Camper</string>
+    <string name="sexo">Sexo</string>
+</resources>

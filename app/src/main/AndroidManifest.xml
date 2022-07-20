@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.refineria">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".sharedpreference.RefineriaApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/bimo_logo_app"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/bimo_logo_app"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.REFINERIA"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ANTIGENO.ANTIGENO_subir_resultado"
+            android:exported="false" />
+        <activity
+            android:name=".procesar_paciente"
+            android:exported="false" />
+        <activity
+            android:name=".monitoreo.MONITOREO_Formato"
+            android:exported="false" />
+        <activity
+            android:name=".sharedpreference.ResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
+            android:name=".monitoreo.MONITOREO_Agregar_Trabajador"
+            android:exported="false" />
+        <activity
+            android:name=".monitoreo.MONITOREO_Cuestionario_Formulario"
+            android:exported="false" />
+        <activity
+            android:name=".monitoreo.MONITOREO_Cuestionario"
+            android:exported="false" />
+        <activity
+            android:name=".monitoreo.MONITOREO_signos_formulario"
+            android:exported="false" />
+        <activity
+            android:name=".monitoreo.MONITOREO_Signos_Vitales"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
