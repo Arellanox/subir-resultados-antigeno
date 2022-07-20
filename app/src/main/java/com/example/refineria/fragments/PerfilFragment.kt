@@ -25,7 +25,7 @@ class PerfilFragment : Fragment() {
     ): View?{
         val view = inflater.inflate(R.layout.fragment_perfil, container, false)
 
-        view.txtNombre.setText(prefs.getNombre())
+        view.txtNombre.setText(prefs.getNombreUsuario())
         view.txtApellidos.setText(prefs.getApellidos())
         view.txtEdad.setText(prefs.getEdad())
         view.txtSexo.setText(prefs.getSexo())

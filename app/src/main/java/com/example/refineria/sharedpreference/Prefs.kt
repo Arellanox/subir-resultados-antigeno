@@ -4,13 +4,13 @@ import android.content.Context
 
 class Prefs (val context:Context) {
     //variables de usuario
-    val SHARED_ID_USUARIO = ""
-    val SHARED_NOMBRE_USUARIO = ""
-    val SHARED_ID_CARGO_USUARIO = ""
-    val SHARED_TIPO_USUARIO = ""
-    val SHARED_USERNAME_USUARIO = ""
-    val SHARED_LUGAR_TOMA_USUARIO=""
-    val SHARED_PUNTO_TRABAJO_USUARIO = ""
+    val SHARED_ID_USUARIO = "id usuario"
+    val SHARED_NOMBRE_USUARIO = "nombre usuario"
+    val SHARED_ID_CARGO_USUARIO = "cargo"
+    val SHARED_TIPO_USUARIO = "tipo"
+    val SHARED_USERNAME_USUARIO = "username"
+    val SHARED_LUGAR_TOMA_USUARIO="lugar toma"
+    val SHARED_PUNTO_TRABAJO_USUARIO = "punto trabajo"
 
     val SHARED_NAME = "SharedData"
     val SHARED_USER_NAME = "username"

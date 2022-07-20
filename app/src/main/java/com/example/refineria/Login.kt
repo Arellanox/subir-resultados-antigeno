@@ -59,6 +59,7 @@ class Login : AppCompatActivity() {
 
                     if (codigo==1){
                         val datos = json.getJSONObject("datos")
+                        Log.d("nombre",datos.getString("nombre"))
                         prefs.saveIdUsuario(datos.getString("id_usuario"))
                         prefs.saveIdCargoUsuario(datos.getString("id_cargo"))
                         prefs.saveNombreUsuario(datos.getString("nombre"))
@@ -67,6 +68,7 @@ class Login : AppCompatActivity() {
                         prefs.savePuntoTrabajoUsuario(datos.getString("punto_trabajo_id"))
                         prefs.saveLugarTomaUsuario(datos.getString("lugar_toma_id"))
                         goToDetail()
+                        Log.d("pref n ombre", prefs.getNombreUsuario())
                     }else{
                         Toast.makeText(this,"Error: Usuario y/o password incorrectos",Toast.LENGTH_LONG).show()
                     }
