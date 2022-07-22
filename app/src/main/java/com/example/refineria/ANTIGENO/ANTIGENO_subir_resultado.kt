@@ -47,7 +47,6 @@ class ANTIGENO_subir_resultado : AppCompatActivity() {
         this.startActivity(intent)
 
 
-
     }
 
     @SuppressLint("SetTextI18n")

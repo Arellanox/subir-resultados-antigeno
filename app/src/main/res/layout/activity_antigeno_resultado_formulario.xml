@@ -56,7 +56,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="59dp"
-        android:layout_marginBottom="70dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
@@ -142,7 +141,6 @@
                 android:textColor="@color/black"
                 android:theme="@style/OulineInput"
                 android:visibility="visible"
-                android:drawableRight="@drawable/ic_baseline_calendar_today_24"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
@@ -176,7 +174,6 @@
                 android:textColor="@color/black"
                 android:theme="@style/OulineInput"
                 android:visibility="visible"
-                android:drawableRight="@drawable/ic_baseline_calendar_today_24"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
@@ -227,61 +224,7 @@
                 android:inputType=""
                 android:textColor="@color/black"
                 android:theme="@style/OulineInput" />
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/evidencia"
-                android:textColor="@color/black"
-                android:textSize="23sp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="10dp"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/btnSignosFoto"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:backgroundTint="@color/colorPrimaryVariant"
-                android:drawableLeft="@drawable/ic_baseline_camera_alt_24"
-                android:gravity="center"
-                android:text="@string/tomar_foto"
-                android:textColor="@color/white" />
-
-            <ImageView
-                android:id="@+id/imageFoto"
-                android:layout_width="match_parent"
-                android:layout_height="295dp"
-                tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
         </LinearLayout>
     </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/linearLayout9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="20dp">
-
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:backgroundTint="@color/colorFondoOscuro"
-            android:text="@string/registrar"
-            android:layout_gravity="center"
-            android:drawableLeft="@drawable/ic_baseline_camera_alt_24"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
