@@ -8,8 +8,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.refineria.classes.PacientesAntigeno
+import com.example.refineria.classes.PacientesAntigenoProvider
 
-class RecyclerAdapter(val pacientesAntigenoList:List<PacientesAntigeno>): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+class RecyclerAdapter(var pacientesAntigenoList:List<PacientesAntigeno>): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     private val nombre = arrayOf("d116df5",
         "36ffc75", "f5cfe78", "5b87628",
@@ -41,6 +42,7 @@ class RecyclerAdapter(val pacientesAntigenoList:List<PacientesAntigeno>): Recycl
         "Negativo", "Negativo", "Positivo",
         "Agregar")
 
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         var itemNombre: TextView
@@ -52,6 +54,8 @@ class RecyclerAdapter(val pacientesAntigenoList:List<PacientesAntigeno>): Recycl
         var itemResultado: TextView
 
         init {
+
+            //pacientesAntigenoList = anti.lista
             itemNombre = itemView.findViewById(R.id.txtNombre)
             itemPrefolio = itemView.findViewById(R.id.txtPrefolio)
             itemProcedencia = itemView.findViewById(R.id.txtProcedencia)
@@ -84,6 +88,7 @@ class RecyclerAdapter(val pacientesAntigenoList:List<PacientesAntigeno>): Recycl
 
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
+        //anti.obtenerListaPacientesAntigeno(viewGroup.context)
         val v = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.trabajadores_cardview, viewGroup, false)
         return ViewHolder(v)
@@ -104,12 +109,20 @@ class RecyclerAdapter(val pacientesAntigenoList:List<PacientesAntigeno>): Recycl
         }
         viewHolder.itemResultado.text = resultado[i]*/
         val item = pacientesAntigenoList[i]
+
+        if(item.resultado=="Positivo"){
+            viewHolder.avatar.setImageResource(R.drawable.positive);
+        }else if(item.resultado=="Negativo"){
+            viewHolder.avatar.setImageResource(R.drawable.negative);
+        }else{
+            viewHolder.avatar.setImageResource(R.drawable.plus);
+        }
         viewHolder.render(item)
 
     }
 
     override fun getItemCount(): Int {
-        return pacientesAntigenoList.size
+       return pacientesAntigenoList.size
     }
 
 }

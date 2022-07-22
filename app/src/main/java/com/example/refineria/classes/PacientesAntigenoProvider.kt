@@ -40,6 +40,7 @@ class PacientesAntigenoProvider(var lista: List<PacientesAntigeno> = listOf<Paci
             }else{
                 //Toast.makeText(this,"No se ha podido cargar la vista principal",Toast.LENGTH_SHORT).show()
             }
+            Log.d("fin de la funcion volley","HA TERMINADO LA FUNCION QUE CARGA LA VISTA PRINCIPAL")
         },{
             error ->
             Log.d("error volley lista",error.toString())

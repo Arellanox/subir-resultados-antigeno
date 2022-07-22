@@ -16,7 +16,7 @@ class procesar_paciente : AppCompatActivity() {
         val nombre = bundle?.getString("NOMBRE")
         val prefolio = bundle?.getString("PREFOLIO")
         val resultado = bundle?.getString("RESULTADO")
-        if (resultado == "Agregar"){
+        if (resultado == "null"){
             val intent = Intent(this, ANTIGENO_subir_resultado::class.java).apply {
                 putExtra("NUMERO", numero)
                 putExtra("NOMBRE", nombre)

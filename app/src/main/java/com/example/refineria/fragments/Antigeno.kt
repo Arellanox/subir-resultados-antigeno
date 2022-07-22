@@ -1,6 +1,8 @@
 package com.example.refineria.fragments
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
+import com.example.refineria.MainActivity
 import com.example.refineria.R
 import com.example.refineria.RecyclerAdapter
 import com.example.refineria.classes.Fotos
@@ -32,8 +35,14 @@ class Antigeno : Fragment() {
     }
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
         super.onViewCreated(itemView, savedInstanceState)
+        Handler(Looper.getMainLooper()).postDelayed({
+            /* Create an Intent that will start the Menu-Activity. */
+            recycle()
+        }, 1500)
 
+    }
 
+    fun recycle(){
         recyclerViewPacientesAntigeno.apply {
             // set a LinearLayoutManager to handle Android
             // RecyclerView behavior

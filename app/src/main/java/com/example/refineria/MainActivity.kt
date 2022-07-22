@@ -8,6 +8,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.refineria.classes.Frentes
 import com.example.refineria.classes.PacientesAntigenoProvider
 import com.example.refineria.database.SQLite
@@ -15,6 +17,7 @@ import com.example.refineria.fragments.*
 import com.example.refineria.sharedpreference.RefineriaApplication
 import com.example.refineria.sharedpreference.RefineriaApplication.Companion.prefs
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_antigeno.*
 import kotlinx.android.synthetic.main.fragment_perfil.*
 import kotlinx.android.synthetic.main.fragment_perfil.view.*
 import java.util.*
@@ -25,16 +28,11 @@ class MainActivity : AppCompatActivity() {
     private val perfilFragment = PerfilFragment()
     private val antigenoFragment = Antigeno()
     private val supervisionesFragment = SupervisionesFragment()
-    val antigenos = PacientesAntigenoProvider()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         //checkUserValues()
-
-        antigenos.obtenerListaPacientesAntigeno(this)
-
-        Toast.makeText(this,"esta es el valor de la lista ${antigenos.lista}",Toast.LENGTH_SHORT).show()
 
         replaceFragment(antigenoFragment)
         bottom_navigation.setOnNavigationItemSelectedListener {
@@ -49,12 +47,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun replaceFragment(fragment: Fragment){
-        antigenos.obtenerListaPacientesAntigeno(this)
-        Log.d("valor de la lista",antigenos.lista.toString())
+        val antigenos = Antigeno()
+        antigenos.antigenos.obtenerListaPacientesAntigeno(this)
+        Log.d("valor de la lista",antigenos.antigenos.lista.toString())
         if (fragment != null){
             val transaction = supportFragmentManager.beginTransaction()
             transaction.replace(R.id.fragment_container, fragment)
             transaction.commit()
+
         }
     }
 

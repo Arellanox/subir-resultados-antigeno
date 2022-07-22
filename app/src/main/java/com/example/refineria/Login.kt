@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
+import com.example.refineria.classes.PacientesAntigenoProvider
 import com.example.refineria.classes.Pafre
 import com.example.refineria.classes.Usuarios
 import com.example.refineria.database.SQLite
@@ -85,7 +86,10 @@ class Login : AppCompatActivity() {
     }
 
     fun goToDetail(){
+
+
         var usuario = prefs.getUsernameUsuario()
+
         startActivity(Intent(this, MainActivity::class.java))
         Toast.makeText(this, "Bienvenido $usuario", Toast.LENGTH_LONG).show()
     }
