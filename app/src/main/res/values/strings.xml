@@ -22,5 +22,8 @@
     <string name="fecha_de_muestra">Fecha de muestra</string>
     <string name="tipo_de_muestra">Tipo de muestra</string>
     <string name="selecciona_el_dia">Selecciona el dia</string>
+    <string name="evidencia">Evidencia</string>
+    <string name="registrar">Registrar</string>
+    <string name="tomar_foto">Tomar foto</string>
     <string name="clave">Clave</string>
 </resources>

@@ -8,7 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.refineria.classes.PacientesAntigeno
-import com.example.refineria.classes.PacientesAntigenoProvider
 
 class RecyclerAdapter(var pacientesAntigenoList:List<PacientesAntigeno>): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
