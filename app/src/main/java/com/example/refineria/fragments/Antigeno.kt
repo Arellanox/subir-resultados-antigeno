@@ -35,8 +35,9 @@ class Antigeno : Fragment(), MainActivity.refreshList {
         inflater: LayoutInflater, container : ViewGroup?,
         saveInstanceState: Bundle?
     ): View?{
+        val view = inflater.inflate(R.layout.fragment_antigeno, container, false)
         antigenos.obtenerListaPacientesAntigeno(requireContext())
-        return inflater.inflate(R.layout.fragment_antigeno, container, false)
+        return view
     }
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
         super.onViewCreated(itemView, savedInstanceState)

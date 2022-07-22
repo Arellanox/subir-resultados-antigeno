@@ -90,7 +90,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorFondoOscuro"
+                android:background="@color/colorOnPrimary"
                 android:paddingLeft="20dp"
                 android:paddingTop="5dp"
                 android:paddingRight="20dp"
@@ -104,17 +104,17 @@
                 android:id="@+id/textNombrePasiente2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:text="@string/nombre_paciente"
-                android:textColor="@color/black"
+                android:textColor="@color/colorTexto"
                 android:textSize="23sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorFondoOscuro"
+                android:background="@color/colorOnPrimary"
                 android:paddingLeft="20dp"
                 android:paddingTop="5dp"
                 android:paddingRight="20dp"
@@ -125,6 +125,7 @@
                 android:tooltipText="Nombre del Paciente" />
 
             <EditText
+                android:id="@+id/ResultFechaToma"
                 style="@style/Widget.AppCompat.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -139,7 +140,7 @@
                 android:inputType="date"
                 android:selectAllOnFocus="false"
                 android:singleLine="false"
-                android:textColor="@color/black"
+                android:textColor="@color/colorTexto"
                 android:theme="@style/OulineInput"
                 android:visibility="visible"
                 android:drawableRight="@drawable/ic_baseline_calendar_today_24"
@@ -148,7 +149,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorFondoOscuro"
+                android:background="@color/colorOnPrimary"
                 android:paddingLeft="20dp"
                 android:paddingTop="5dp"
                 android:paddingRight="20dp"
@@ -158,7 +159,7 @@
                 android:textSize="23sp"
                 android:tooltipText="Nombre del Paciente" />
 
-            <EditText
+            <EditText android:id="@+id/ResultFechaMuestra"
                 style="@style/Widget.AppCompat.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -173,7 +174,7 @@
                 android:inputType="date"
                 android:selectAllOnFocus="false"
                 android:singleLine="false"
-                android:textColor="@color/black"
+                android:textColor="@color/colorTexto"
                 android:theme="@style/OulineInput"
                 android:visibility="visible"
                 android:drawableRight="@drawable/ic_baseline_calendar_today_24"
@@ -182,7 +183,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorFondoOscuro"
+                android:background="@color/colorOnPrimary"
                 android:paddingLeft="20dp"
                 android:paddingTop="5dp"
                 android:paddingRight="20dp"
@@ -199,6 +200,7 @@
                 android:layout_height="41dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
+                android:textColor="@color/colorTexto"
                 android:layout_marginBottom="15dp"
                 android:dropDownWidth="match_parent"
                 android:spinnerMode="dialog" />
@@ -206,7 +208,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorFondoOscuro"
+                android:background="@color/colorOnPrimary"
                 android:paddingLeft="20dp"
                 android:paddingTop="5dp"
                 android:paddingRight="20dp"
@@ -225,7 +227,7 @@
                 android:layout_marginBottom="15dp"
                 android:gravity="center"
                 android:inputType=""
-                android:textColor="@color/black"
+                android:textColor="@color/colorTexto"
                 android:theme="@style/OulineInput" />
 
             <TextView
@@ -233,7 +235,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/evidencia"
-                android:textColor="@color/black"
+                android:textColor="@color/colorTexto"
                 android:textSize="23sp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
@@ -241,7 +243,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/btnSignosFoto"
+                android:id="@+id/ResultEvidencia"
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
@@ -254,7 +256,8 @@
             <ImageView
                 android:id="@+id/imageFoto"
                 android:layout_width="match_parent"
-                android:layout_height="295dp"
+                android:layout_height="300dp"
+                android:layout_marginBottom="70dp"
                 tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
         </LinearLayout>

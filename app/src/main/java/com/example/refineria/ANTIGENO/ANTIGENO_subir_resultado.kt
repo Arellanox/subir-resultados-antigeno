@@ -95,6 +95,11 @@ class ANTIGENO_subir_resultado : AppCompatActivity() {
         view.btnDialogAceptar.setOnClickListener {
             Toast.makeText(this, "A seleccionado el resultado, agregué la siguiente información", Toast.LENGTH_SHORT).show()
             form(resultado, nombre, "99999")
+            dialog.dismiss()
+        }
+        
+        view.btnDialogCancelar.setOnClickListener {
+            dialog.dismiss()
         }
     }
 }
