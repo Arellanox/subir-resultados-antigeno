@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.refineria.classes.PacientesAntigeno
 
-class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+class RecyclerAdapter(val pacientesAntigenoList:List<PacientesAntigeno>): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     private val nombre = arrayOf("d116df5",
         "36ffc75", "f5cfe78", "5b87628",
@@ -70,6 +71,15 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
                 context.startActivity(intent)
             }
         }
+
+        fun render(paciente : PacientesAntigeno){
+            itemNombre.text = paciente.nombre
+            itemPrefolio.text = paciente.prefolio
+            itemProcedencia.text = paciente.procedencia
+            itemSegmento.text = paciente.segmento
+            itemFechaRegistro.text = paciente.fechaIngreso
+            itemResultado.text = paciente.resultado
+        }
     }
 
 
@@ -80,7 +90,7 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
-        viewHolder.itemNombre.text = nombre[i]
+        /*viewHolder.itemNombre.text = nombre[i]
         viewHolder.itemPrefolio.text = prefolio[i]
         viewHolder.itemProcedencia.text = procedencia[i]
         viewHolder.itemSegmento.text = segmentos[i]
@@ -92,12 +102,14 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         }else{
             viewHolder.avatar.setImageResource(R.drawable.plus);
         }
-        viewHolder.itemResultado.text = resultado[i]
+        viewHolder.itemResultado.text = resultado[i]*/
+        val item = pacientesAntigenoList[i]
+        viewHolder.render(item)
 
     }
 
     override fun getItemCount(): Int {
-        return nombre.size
+        return pacientesAntigenoList.size
     }
 
 }

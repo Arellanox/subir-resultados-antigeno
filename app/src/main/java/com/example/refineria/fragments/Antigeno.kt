@@ -22,22 +22,24 @@ class Antigeno : Fragment() {
 
     private var layoutManager: RecyclerView.LayoutManager? = null
     private var adapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>? = null
-
+    val antigenos = PacientesAntigenoProvider()
     override fun onCreateView(
         inflater: LayoutInflater, container : ViewGroup?,
         saveInstanceState: Bundle?
     ): View?{
+        antigenos.obtenerListaPacientesAntigeno(requireContext())
         return inflater.inflate(R.layout.fragment_antigeno, container, false)
     }
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
         super.onViewCreated(itemView, savedInstanceState)
+
 
         recyclerViewPacientesAntigeno.apply {
             // set a LinearLayoutManager to handle Android
             // RecyclerView behavior
             layoutManager = LinearLayoutManager(activity)
             // set the custom adapter to the RecyclerView
-            adapter = RecyclerAdapter()
+            adapter = RecyclerAdapter(antigenos.lista)
         }
     }
 }
