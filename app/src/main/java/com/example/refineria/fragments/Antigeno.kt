@@ -1,5 +1,6 @@
 package com.example.refineria.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -20,12 +21,14 @@ import com.example.refineria.classes.PacientesAntigeno
 import com.example.refineria.classes.PacientesAntigenoProvider
 import kotlinx.android.synthetic.main.fragment_antigeno.*
 import kotlinx.android.synthetic.main.fragment_antigeno.view.*
+import java.lang.ClassCastException
 
-class Antigeno : Fragment() {
+class Antigeno : Fragment(), MainActivity.refreshList {
 
     private var layoutManager: RecyclerView.LayoutManager? = null
     private var adapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>? = null
-    val antigenos = PacientesAntigenoProvider()
+    var antigenos = PacientesAntigenoProvider()
+
     override fun onCreateView(
         inflater: LayoutInflater, container : ViewGroup?,
         saveInstanceState: Bundle?
@@ -35,20 +38,30 @@ class Antigeno : Fragment() {
     }
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
         super.onViewCreated(itemView, savedInstanceState)
+        Toast.makeText(activity,"Cargando lista de pacientes...",Toast.LENGTH_SHORT).show()
         Handler(Looper.getMainLooper()).postDelayed({
             /* Create an Intent that will start the Menu-Activity. */
-            recycle()
+            recycle(antigenos.lista)
         }, 1500)
 
     }
 
-    fun recycle(){
+    fun recycle(lista:List<PacientesAntigeno>){
         recyclerViewPacientesAntigeno.apply {
             // set a LinearLayoutManager to handle Android
             // RecyclerView behavior
             layoutManager = LinearLayoutManager(activity)
             // set the custom adapter to the RecyclerView
-            adapter = RecyclerAdapter(antigenos.lista)
+            adapter = RecyclerAdapter(lista)
         }
+    }
+
+    override fun refresh(list: List<PacientesAntigeno>) {
+        super.refresh(list)
+        recycle(list)
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
     }
 }

@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.refineria.classes.Frentes
+import com.example.refineria.classes.PacientesAntigeno
 import com.example.refineria.classes.PacientesAntigenoProvider
 import com.example.refineria.database.SQLite
 import com.example.refineria.fragments.*
@@ -22,17 +23,19 @@ import kotlinx.android.synthetic.main.fragment_perfil.*
 import kotlinx.android.synthetic.main.fragment_perfil.view.*
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
 
 
     private val perfilFragment = PerfilFragment()
     private val antigenoFragment = Antigeno()
     private val supervisionesFragment = SupervisionesFragment()
+    val antigenos = PacientesAntigenoProvider()
+    val listener:refreshList?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //checkUserValues()
+        checkUserValues()
 
         replaceFragment(antigenoFragment)
         bottom_navigation.setOnNavigationItemSelectedListener {
@@ -46,14 +49,28 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun checkUserValues(){
+        if(prefs.getNombreUsuario().isEmpty()){
+            startActivity(Intent(this, Login::class.java))
+            finish()
+        }
+    }
+
     private fun replaceFragment(fragment: Fragment){
-        val antigenos = Antigeno()
-        antigenos.antigenos.obtenerListaPacientesAntigeno(this)
-        Log.d("valor de la lista",antigenos.antigenos.lista.toString())
+
+        antigenos.obtenerListaPacientesAntigeno(this)
+        listener?.refresh(antigenos.lista)
+        //Log.d("valor de la lista en main",antigenos.lista.toString())
         if (fragment != null){
             val transaction = supportFragmentManager.beginTransaction()
             transaction.replace(R.id.fragment_container, fragment)
             transaction.commit()
+
+        }
+    }
+
+    interface refreshList {
+        fun refresh(list: List<PacientesAntigeno>){
 
         }
     }

@@ -16,10 +16,10 @@ class PacientesAntigenoProvider(var lista: List<PacientesAntigeno> = listOf<Paci
             val json = response.getJSONObject("response")
             val code = json.getInt("code")
             if(code==1){
+                lista = emptyList()
                 val datos = json.getJSONArray("datos")
                 for (i in 0..datos.length()-1){
                     val paciente = datos.getJSONObject(i)
-
                     lista += PacientesAntigeno(
                         paciente.getInt("id_paciente"),
                         paciente.getString("folio"),
@@ -41,6 +41,7 @@ class PacientesAntigenoProvider(var lista: List<PacientesAntigeno> = listOf<Paci
                 //Toast.makeText(this,"No se ha podido cargar la vista principal",Toast.LENGTH_SHORT).show()
             }
             Log.d("fin de la funcion volley","HA TERMINADO LA FUNCION QUE CARGA LA VISTA PRINCIPAL")
+            Log.d("lista de la clase", lista.toString())
         },{
             error ->
             Log.d("error volley lista",error.toString())
