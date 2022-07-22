@@ -8,39 +8,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.refineria.classes.PacientesAntigeno
+import java.util.ArrayList
 
-class RecyclerAdapter(var pacientesAntigenoList:List<PacientesAntigeno>): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
-
-    private val nombre = arrayOf("d116df5",
-        "36ffc75", "f5cfe78", "5b87628",
-        "db8d14e", "9913dc4", "e120f96",
-        "466251b")
-
-    private val prefolio = arrayOf("Kekayaan", "Teknologi",
-        "Keluarga", "Bisnis",
-        "Keluarga", "Hutang",
-        "Teknologi", "Pidana")
-
-    private val procedencia = arrayOf("pertanyaan 9",
-        "pertanyaan 11", "pertanyaan 17", "test forum",
-        "pertanyaan 12", "pertanyaan 18", "pertanyaan 20",
-        "pertanyaan 21")
-
-    private val segmentos = arrayOf("pertanyaan 9",
-        "pertanyaan 11", "pertanyaan 17", "test forum",
-        "pertanyaan 12", "pertanyaan 18", "pertanyaan 20",
-        "pertanyaan 21")
-
-    private val fecharegistro = arrayOf("pertanyaan 9",
-        "pertanyaan 11", "pertanyaan 17", "test forum",
-        "pertanyaan 12", "pertanyaan 18", "pertanyaan 20",
-        "pertanyaan 21")
-
-    private val resultado = arrayOf("Positivo",
-        "Negativo", "Positivo", "Agregar",
-        "Negativo", "Negativo", "Positivo",
-        "Agregar")
-
+class RecyclerAdapter(var pacientesAntigenoList:List<PacientesAntigeno>, val onClickListener:(PacientesAntigeno) -> Unit): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -53,8 +23,6 @@ class RecyclerAdapter(var pacientesAntigenoList:List<PacientesAntigeno>): Recycl
         var itemResultado: TextView
 
         init {
-
-            //pacientesAntigenoList = anti.lista
             itemNombre = itemView.findViewById(R.id.txtNombre)
             itemPrefolio = itemView.findViewById(R.id.txtPrefolio)
             itemProcedencia = itemView.findViewById(R.id.txtProcedencia)
@@ -62,26 +30,31 @@ class RecyclerAdapter(var pacientesAntigenoList:List<PacientesAntigeno>): Recycl
             itemFechaRegistro = itemView.findViewById(R.id.txTFechaRegistro)
             itemResultado = itemView.findViewById(R.id.txtResultado)
 
-            itemView.setOnClickListener {
-                var position: Int = getAdapterPosition()
-                val context = itemView.context
-                val intent = Intent(context, procesar_paciente::class.java).apply {
-                    putExtra("NUMERO", position)
-                    putExtra("NOMBRE", itemNombre.text)
-                    putExtra("PREFOLIO", itemPrefolio.text)
-                    putExtra("RESULTADO", itemResultado.text)
-                }
-                context.startActivity(intent)
-            }
+
         }
 
-        fun render(paciente : PacientesAntigeno){
+        fun render(paciente : PacientesAntigeno,onClickListener:(PacientesAntigeno) -> Unit){
             itemNombre.text = paciente.nombre
             itemPrefolio.text = paciente.prefolio
             itemProcedencia.text = paciente.procedencia
             itemSegmento.text = paciente.segmento
             itemFechaRegistro.text = paciente.fechaIngreso
             itemResultado.text = paciente.resultado
+
+            itemView.setOnClickListener {
+                /*var position: Int = getAdapterPosition()
+                var paciente = pacientesAntigenoList[position]
+                val context = itemView.context
+                val intent = Intent(context, procesar_paciente::class.java).apply {
+                    putExtra("NUMERO", position)
+                    putExtra("NOMBRE", itemNombre.text)
+                    putExtra("PREFOLIO", itemPrefolio.text)
+                    putExtra("RESULTADO", itemResultado.text)
+                    putExtra("paciente",paciente.toString())
+                }
+                context.startActivity(intent)*/
+                onClickListener(paciente)
+            }
         }
     }
 
@@ -116,7 +89,7 @@ class RecyclerAdapter(var pacientesAntigenoList:List<PacientesAntigeno>): Recycl
         }else{
             viewHolder.avatar.setImageResource(R.drawable.plus);
         }
-        viewHolder.render(item)
+        viewHolder.render(item, onClickListener)
 
     }
 

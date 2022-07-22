@@ -1,6 +1,7 @@
 package com.example.refineria.fragments
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -19,6 +20,7 @@ import com.example.refineria.RecyclerAdapter
 import com.example.refineria.classes.Fotos
 import com.example.refineria.classes.PacientesAntigeno
 import com.example.refineria.classes.PacientesAntigenoProvider
+import com.example.refineria.procesar_paciente
 import kotlinx.android.synthetic.main.fragment_antigeno.*
 import kotlinx.android.synthetic.main.fragment_antigeno.view.*
 import java.lang.ClassCastException
@@ -52,8 +54,29 @@ class Antigeno : Fragment(), MainActivity.refreshList {
             // RecyclerView behavior
             layoutManager = LinearLayoutManager(activity)
             // set the custom adapter to the RecyclerView
-            adapter = RecyclerAdapter(lista)
+            adapter = RecyclerAdapter(lista) { paciente -> onItemSelected(paciente) }
         }
+    }
+
+    fun onItemSelected(paciente:PacientesAntigeno){
+        val intent = Intent(activity, procesar_paciente::class.java).apply {
+            putExtra("id_paciente", paciente.id_paciente)
+            putExtra("folio", paciente.folio)
+            putExtra("folioOrden", paciente.folioOrden)
+            putExtra("nombre", paciente.nombre)
+            putExtra("resultado", paciente.resultado)
+            putExtra("fechaResultado", paciente.fechaResultado)
+            putExtra("prefolio", paciente.prefolio)
+            putExtra("segmento", paciente.segmento)
+            putExtra("sexo", paciente.sexo)
+            putExtra("fechaIngreso", paciente.fechaIngreso)
+            putExtra("indicador", paciente.indicador)
+            putExtra("origen", paciente.origen)
+            putExtra("lugarExtra", paciente.lugarExtra)
+            putExtra("procedencia", paciente.procedencia)
+            putExtra("edad", paciente.edad)
+        }
+        startActivity(intent)
     }
 
     override fun refresh(list: List<PacientesAntigeno>) {
