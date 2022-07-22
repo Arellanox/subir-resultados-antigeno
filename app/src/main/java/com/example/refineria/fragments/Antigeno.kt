@@ -30,16 +30,16 @@ class Antigeno : Fragment() {
         inflater: LayoutInflater, container : ViewGroup?,
         saveInstanceState: Bundle?
     ): View?{
-        antigenos.obtenerListaPacientesAntigeno(requireContext())
         return inflater.inflate(R.layout.fragment_antigeno, container, false)
     }
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
         super.onViewCreated(itemView, savedInstanceState)
+        antigenos.obtenerListaPacientesAntigeno(requireContext())
+        Toast.makeText(activity,"Cargado lista de pacientes...",Toast.LENGTH_SHORT).show()
         Handler(Looper.getMainLooper()).postDelayed({
             /* Create an Intent that will start the Menu-Activity. */
             recycle()
-        }, 1500)
-
+        }, 1800)
     }
 
     fun recycle(){
