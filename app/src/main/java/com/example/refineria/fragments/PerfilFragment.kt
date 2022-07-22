@@ -23,6 +23,7 @@ class PerfilFragment : Fragment() {
         inflater: LayoutInflater, container : ViewGroup?,
         saveInstanceState: Bundle?
     ): View?{
+
         val view = inflater.inflate(R.layout.fragment_perfil, container, false)
 
         view.txtNombre.setText(prefs.getNombreUsuario())

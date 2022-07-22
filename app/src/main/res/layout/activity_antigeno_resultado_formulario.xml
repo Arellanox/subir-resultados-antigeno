@@ -78,7 +78,7 @@
                 android:paddingLeft="20dp"
                 android:paddingTop="3dp"
                 android:paddingRight="20dp"
-                android:paddingBottom="5dp"
+                android:paddingBottom="10dp"
                 android:text="Resultado"
                 android:textColor="@color/black"
                 android:textSize="27sp"
@@ -190,7 +190,6 @@
                 android:tooltipText="Nombre del Paciente" />
 
             <Spinner
-                android:id="@+id/spinnerTrabajador"
                 style="@android:style/Widget.DeviceDefault.Spinner"
                 android:layout_width="match_parent"
                 android:layout_height="41dp"
@@ -224,6 +223,79 @@
                 android:inputType=""
                 android:textColor="@color/black"
                 android:theme="@style/OulineInput" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorFondoOscuro"
+                android:paddingLeft="20dp"
+                android:paddingTop="5dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="5dp"
+                android:text="Lote de kit"
+                android:textColor="@color/white"
+                android:textSize="23sp"
+                android:tooltipText="Nombre del Paciente" />
+
+            <Spinner
+                style="@android:style/Widget.DeviceDefault.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="41dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="15dp"
+                android:dropDownWidth="match_parent"
+                android:spinnerMode="dialog" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorFondoOscuro"
+                android:paddingLeft="20dp"
+                android:paddingTop="5dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="5dp"
+                android:text="Lote de kit"
+                android:textColor="@color/white"
+                android:textSize="23sp"
+                android:tooltipText="Nombre del Paciente" />
+
+            <EditText
+                android:id="@+id/fname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="30dp"
+                android:textColor="@color/black"
+                android:theme="@style/OulineInput"
+                />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Evidencia"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btnSignosFoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimaryVariant"
+                android:drawableLeft="@drawable/ic_baseline_camera_alt_24"
+                android:gravity="center"
+                android:text="Tomar foto"
+                android:textColor="@color/white" />
+
+            <ImageView
+                android:id="@+id/imageFoto"
+                android:layout_width="match_parent"
+                android:layout_height="295dp"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+
         </LinearLayout>
     </ScrollView>
 
