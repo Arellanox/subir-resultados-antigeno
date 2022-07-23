@@ -32,7 +32,7 @@ class PacientesAntigenoProvider(var lista: List<PacientesAntigeno> = listOf<Paci
                         paciente.getString("sexo"),
                         paciente.getString("fechaIngreso"),
                         paciente.getString("indicador"),
-                        paciente.getInt("origen"),
+                        paciente.getString("origen"),
                         paciente.getString("lugarextra"),
                         paciente.getString("procedenciapdf"),
                         paciente.getInt("edad"))

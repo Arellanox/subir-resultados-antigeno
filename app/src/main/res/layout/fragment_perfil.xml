@@ -49,13 +49,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
-                android:text="Nombre"
+                android:text="@string/usuario"
                 android:textColor="@color/black"
                 android:textSize="25dp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/txtNombre"
+                android:id="@+id/txtUsuario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
@@ -67,13 +67,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
-                android:text="Apellidos"
+                android:text="@string/nombre"
                 android:textColor="@color/black"
                 android:textSize="25dp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/txtApellidos"
+                android:id="@+id/txtNombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
@@ -85,49 +85,49 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
-                android:text="Edad"
+                android:text="@string/profesi_n"
                 android:textColor="@color/black"
                 android:textSize="25dp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/txtEdad"
+                android:id="@+id/txtProfesion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
-                android:text="39 años"
                 android:textColor="@color/black"
-                android:textSize="20dp" />
+                android:hint="@string/example"
+                android:textSize="20sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
-                android:text="Sexo"
-                android:textColor="@color/black"
-                android:textSize="25dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/txtSexo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:text="MASCULINO"
-                android:textColor="@color/black"
-                android:textSize="20dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:text="Lugar de toma"
+                android:text="@string/cedula"
                 android:textColor="@color/black"
                 android:textSize="25dp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/txtNss"
+                android:id="@+id/txtCedula"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:textColor="@color/black"
+                android:hint="@string/example"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:text="@string/lugar_de_toma"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtLugarToma"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
@@ -144,25 +144,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:orientation="horizontal"
-        android:weightSum="2"
+        android:weightSum="1"
         app:layout_constraintBottom_toBottomOf="parent"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent">
-
-        <Button
-            android:id="@+id/sync_data_btn"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/colorPrimaryVariant"
-            android:gravity="center"
-            android:text="@string/actualizar"
-            android:textSize="18sp"
-            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/btnSesion"
@@ -173,7 +160,7 @@
             android:layout_weight="1"
             android:backgroundTint="@color/colorPrimaryVariant"
             android:gravity="center"
-            android:text="@string/salir"
+            android:text="@string/cerrar_sesi_n"
             android:textSize="18sp"
             android:textColor="@color/white" />
     </LinearLayout>

@@ -26,4 +26,9 @@
     <string name="registrar">Registrar</string>
     <string name="tomar_foto">Tomar foto</string>
     <string name="clave">Clave</string>
+    <string name="cedula">Cedula</string>
+    <string name="lugar_de_toma">Lugar de toma</string>
+    <string name="profesi_n">Profesión</string>
+    <string name="usuario">Usuario</string>
+    <string name="example">example</string>
 </resources>

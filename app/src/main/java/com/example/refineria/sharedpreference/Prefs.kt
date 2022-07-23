@@ -104,6 +104,14 @@ class Prefs (val context:Context) {
         return storage.getString(SHARED_PUNTO_TRABAJO_USUARIO,"")!!
     }
 
+    fun saveProfesionUsuario(punto:String){
+        storage.edit().putString(SHARED_PUNTO_TRABAJO_USUARIO,punto).apply()
+    }
+
+    fun getProfesionUsuario():String{
+        return storage.getString(SHARED_PUNTO_TRABAJO_USUARIO,"")!!
+    }
+
 
     fun saveNombre(name: String){
         storage.edit().putString(SHARED_USER_NOMBRE, name).apply()

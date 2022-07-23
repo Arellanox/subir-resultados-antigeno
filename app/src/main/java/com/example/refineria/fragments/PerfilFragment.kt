@@ -26,11 +26,11 @@ class PerfilFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_perfil, container, false)
 
+        view.txtUsuario.setText(prefs.getUsernameUsuario())
         view.txtNombre.setText(prefs.getNombreUsuario())
-        view.txtApellidos.setText(prefs.getApellidos())
-        view.txtEdad.setText(prefs.getEdad())
-        view.txtSexo.setText(prefs.getSexo())
-        view.txtNss.setText(prefs.getNss())
+        view.txtProfesion.setText(prefs.getProfesionUsuario())
+        //view.txtSexo.setText(prefs.getSexo())
+        //view.txtNss.setText(prefs.getNss())
 
         view.btnSesion.setOnClickListener{
             prefs.wipe()
@@ -39,7 +39,7 @@ class PerfilFragment : Fragment() {
             getActivity()?.startActivity(editProfileIntent)
         }
 
-        view.sync_data_btn.setOnClickListener {
+        /* view.sync_data_btn.setOnClickListener {
             val c = context
             //Toast.makeText(context,"Descargando datos",Toast.LENGTH_LONG).show()
             val frentes = Frentes()
@@ -60,7 +60,7 @@ class PerfilFragment : Fragment() {
                 fotos.uploadFotos(c,loteFotos)
                 pafre.downloadPafres(c)
             }
-        }
+        } */
 
         return view
     }

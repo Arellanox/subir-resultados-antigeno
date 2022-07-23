@@ -23,19 +23,12 @@ class ANTIGENO_subir_resultado : AppCompatActivity() {
         setContentView(R.layout.activity_antigeno_subir_resultado)
 
         val bundle = intent.extras
-        val id_paciente = bundle?.getString("id_paciente")
-        val folio = bundle?.getString("folio")
-        val folioOrden = bundle?.getString("folioOrden")
+        val id_paciente = bundle?.getInt("id_paciente")
         val nombre = bundle?.getString("nombre")
-        val resultado = bundle?.getString("resultado")
-        val fechaResultado = bundle?.getString("fechaResultado")
-        val prefolio = bundle?.getString("prefolio")
         val segmento = bundle?.getString("segmento")
         val sexo = bundle?.getString("sexo")
         val fechaIngreso = bundle?.getString("fechaIngreso")
-        val indicador = bundle?.getString("indicador")
-        val origen = bundle?.getInt("origen")
-        val lugarExtra = bundle?.getString("lugarExtra")
+        val origen = bundle?.getString("origen")
         val procedencia = bundle?.getString("procedencia")
         val edad = bundle?.getInt("edad")
 
@@ -48,32 +41,21 @@ class ANTIGENO_subir_resultado : AppCompatActivity() {
         nombre_label?.text = nombre
         procedencia_label?.text = procedencia
         fecha_registro_label?.text = fechaIngreso
-        camper_label?.text = origen.toString()
+        camper_label?.text = origen
         sexo_label?.text = sexo
 
         //Enviar resultado
         PositivoButton.setOnClickListener {
-            alertDialog("Positivo", nombre,edad.toString(),procedencia)
+            alertDialog("Positivo", nombre,edad.toString(),procedencia, segmento, id_paciente)
         }
         NegativoButton.setOnClickListener {
-            alertDialog("Negativo", nombre,edad.toString(),procedencia)
+            alertDialog("Negativo", nombre,edad.toString(),procedencia, segmento, id_paciente)
         }
-
-    }
-
-    private fun form(resultado:String?, nombre: String?, prefolio: String?){
-        val intent = Intent(this, ANTIGENO_resultado_formulario::class.java).apply {
-            putExtra("NOMBRE", nombre)
-            putExtra("PREFOLIO", prefolio)
-            putExtra("RESULTADO", resultado)
-        }
-        this.startActivity(intent)
-
 
     }
 
     @SuppressLint("SetTextI18n")
-    private fun alertDialog(resultado:String, nombre: String?,edad:String?, procedencia:String?){
+    private fun alertDialog(resultado:String, nombre: String?,edad:String?, procedencia:String?, segmento: String?, id_paciente: Int?){
 
         //Asignar valores del dialog
         val builder = AlertDialog.Builder(this@ANTIGENO_subir_resultado)
@@ -83,7 +65,7 @@ class ANTIGENO_subir_resultado : AppCompatActivity() {
         view.findViewById<TextView>(R.id.txtDialogAviso).text = "¿Desea agregar este paciente como $resultado?"
         view.findViewById<TextView>(R.id.DialogResultado).text = resultado
         view.findViewById<TextView>(R.id.txtDialogNombrePaciente).text = nombre
-        view.findViewById<TextView>(R.id.txtDialogProcedencia).text = procedencia
+        view.findViewById<TextView>(R.id.txtDialogProcedencia).text = "${procedencia} - ${segmento}"
         view.findViewById<TextView>(R.id.txtDialogEdad).text = edad
         //Pasando vista al builder
         builder.setView(view)
@@ -93,11 +75,17 @@ class ANTIGENO_subir_resultado : AppCompatActivity() {
         dialog.show()
 
         view.btnDialogAceptar.setOnClickListener {
-            Toast.makeText(this, "A seleccionado el resultado, agregué la siguiente información", Toast.LENGTH_SHORT).show()
-            form(resultado, nombre, "99999")
+            Toast.makeText(this, "A seleccionado el ${resultado}, por favor termine la siguiente información", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, ANTIGENO_resultado_formulario::class.java).apply {
+                putExtra("RESULTADO", resultado)
+                putExtra("NOMBRE", nombre)
+                putExtra("ID_PACIENTE", id_paciente)
+            }
+            this.startActivity(intent)
+            finish()
             dialog.dismiss()
         }
-        
+
         view.btnDialogCancelar.setOnClickListener {
             dialog.dismiss()
         }

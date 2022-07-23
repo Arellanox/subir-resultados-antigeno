@@ -64,6 +64,7 @@ class Login : AppCompatActivity() {
                         prefs.saveIdUsuario(datos.getString("id_usuario"))
                         prefs.saveIdCargoUsuario(datos.getString("id_cargo"))
                         prefs.saveNombreUsuario(datos.getString("nombre"))
+                        prefs.saveProfesionUsuario(datos.getString("profesion"))
                         prefs.saveTipoUsuario(datos.getString("tip_usuario"))
                         prefs.saveUsernameUsuario(datos.getString("username"))
                         prefs.savePuntoTrabajoUsuario(datos.getString("punto_trabajo_id"))

@@ -12,7 +12,7 @@ data class PacientesAntigeno (
     val sexo: String,
     val fechaIngreso: String,
     val indicador: String?="",
-    val origen: Int,
+    val origen: String,
     val lugarExtra: String? = "Ninguno",
     val procedencia: String,
     val edad: Int
