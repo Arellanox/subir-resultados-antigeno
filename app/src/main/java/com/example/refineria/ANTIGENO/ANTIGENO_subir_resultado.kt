@@ -73,7 +73,7 @@ class ANTIGENO_subir_resultado : AppCompatActivity() {
         }
         view.findViewById<TextView>(R.id.DialogResultado).text = resultado
         view.findViewById<TextView>(R.id.txtDialogNombrePaciente).text = nombre
-        view.findViewById<TextView>(R.id.txtDialogProcedencia).text = "${procedencia} - ${segmento}"
+        //view.findViewById<TextView>(R.id.txtDialogProcedencia).text = "${procedencia} - ${segmento}"
         view.findViewById<TextView>(R.id.txtDialogEdad).text = "${edad} años"
         //Pasando vista al builder
         builder.setView(view)
