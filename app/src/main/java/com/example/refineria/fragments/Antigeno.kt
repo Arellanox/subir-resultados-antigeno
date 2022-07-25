@@ -42,21 +42,31 @@ class Antigeno : Fragment(), MainActivity.refreshList {
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
         super.onViewCreated(itemView, savedInstanceState)
         Toast.makeText(activity,"Cargando lista de pacientes...",Toast.LENGTH_SHORT).show()
-        Handler(Looper.getMainLooper()).postDelayed({
-            /* Create an Intent that will start the Menu-Activity. */
-            recycle(antigenos.lista)
-        }, 1500)
+        try{
+            Handler(Looper.getMainLooper()).postDelayed({
+                /* Create an Intent that will start the Menu-Activity. */
+                recycle(antigenos.lista)
+            }, 1500)
+        }catch (e: Exception){
+
+        }
+
 
     }
 
     fun recycle(lista:List<PacientesAntigeno>){
-        recyclerViewPacientesAntigeno.apply {
-            // set a LinearLayoutManager to handle Android
-            // RecyclerView behavior
-            layoutManager = LinearLayoutManager(activity)
-            // set the custom adapter to the RecyclerView
-            adapter = RecyclerAdapter(lista) { paciente -> onItemSelected(paciente) }
+        try{
+            recyclerViewPacientesAntigeno.apply {
+                // set a LinearLayoutManager to handle Android
+                // RecyclerView behavior
+                layoutManager = LinearLayoutManager(activity)
+                // set the custom adapter to the RecyclerView
+                adapter = RecyclerAdapter(lista) { paciente -> onItemSelected(paciente) }
+            }
+        }catch (e: Exception){
+
         }
+
     }
 
     fun onItemSelected(paciente:PacientesAntigeno){

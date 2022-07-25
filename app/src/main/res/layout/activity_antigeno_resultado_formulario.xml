@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
+    android:screenOrientation="portrait"
     tools:context=".ANTIGENO.ANTIGENO_resultado_formulario">
 
     <LinearLayout
@@ -267,7 +268,6 @@
         android:id="@+id/linearLayout9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="20dp">
@@ -276,8 +276,10 @@
             android:id="@+id/button5"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:backgroundTint="@color/colorFondoOscuro"
             android:text="@string/registrar"
             android:layout_gravity="center"

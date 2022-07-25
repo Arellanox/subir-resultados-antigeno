@@ -11,6 +11,8 @@ class Prefs (val context:Context) {
     val SHARED_USERNAME_USUARIO = "username"
     val SHARED_LUGAR_TOMA_USUARIO="lugar toma"
     val SHARED_PUNTO_TRABAJO_USUARIO = "punto trabajo"
+    val SHARED_PROFESION = "profesion"
+    val SHARED_CEDULA = "cedula"
 
     val SHARED_NAME = "SharedData"
     val SHARED_USER_NAME = "username"
@@ -105,11 +107,19 @@ class Prefs (val context:Context) {
     }
 
     fun saveProfesionUsuario(punto:String){
-        storage.edit().putString(SHARED_PUNTO_TRABAJO_USUARIO,punto).apply()
+        storage.edit().putString(SHARED_PROFESION,punto).apply()
     }
 
     fun getProfesionUsuario():String{
-        return storage.getString(SHARED_PUNTO_TRABAJO_USUARIO,"")!!
+        return storage.getString(SHARED_PROFESION,"")!!
+    }
+
+    fun saveCedulaUsuario(punto:String){
+        storage.edit().putString(SHARED_CEDULA,punto).apply()
+    }
+
+    fun getCedulaUsuario():String{
+        return storage.getString(SHARED_CEDULA,"")!!
     }
 
 

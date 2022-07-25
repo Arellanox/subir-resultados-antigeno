@@ -29,6 +29,8 @@ class PerfilFragment : Fragment() {
         view.txtUsuario.setText(prefs.getUsernameUsuario())
         view.txtNombre.setText(prefs.getNombreUsuario())
         view.txtProfesion.setText(prefs.getProfesionUsuario())
+        view.txtCedula.setText(prefs.getCedulaUsuario())
+        view.txtLugarToma.setText(prefs.getLugarTomaUsuario())
         //view.txtSexo.setText(prefs.getSexo())
         //view.txtNss.setText(prefs.getNss())
 
