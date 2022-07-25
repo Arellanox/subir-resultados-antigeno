@@ -34,6 +34,16 @@
         android:textSize="20sp" />
 
     <TextView
+        android:id="@+id/txtDialogResultado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="@string/resultado"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <TextView
         android:id="@+id/txtDialogNombrePaciente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -67,31 +77,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorFondoOscuro"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btnDialogCancelar"
-            android:layout_width="0dp"
-            android:layout_height="55dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/colorPrimaryVariant"
-            android:gravity="center"
-            android:text="@string/cancelar"
-            android:textSize="18sp"
-            android:textColor="@color/white" />
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/btnDialogAceptar"
-            android:layout_width="0dp"
-            android:layout_height="55dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:layout_weight="1"
+            android:padding="10dp"
             android:backgroundTint="@color/colorPrimaryVariant"
             android:gravity="center"
-            android:text="@string/si_aceptar"
+            android:layout_gravity="center"
+            android:text="@string/aceptar"
             android:textSize="18sp"
             android:textColor="@color/white" />
     </LinearLayout>

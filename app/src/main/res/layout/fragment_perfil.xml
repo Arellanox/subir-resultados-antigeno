@@ -25,23 +25,28 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:text="Perfil de Usuario"
+            android:text="@string/perfil_de_usuario"
             android:textColor="@color/white"
             android:textSize="24sp" />
     </LinearLayout>
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/btnSesion"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.398">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:gravity="center|center_vertical"
             android:orientation="vertical">
 
@@ -95,8 +100,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
-                android:textColor="@color/black"
                 android:hint="@string/example"
+                android:textColor="@color/black"
                 android:textSize="20sp" />
 
             <TextView
@@ -113,8 +118,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
-                android:textColor="@color/black"
                 android:hint="@string/example"
+                android:textColor="@color/black"
                 android:textSize="20sp" />
 
             <TextView
@@ -135,42 +140,30 @@
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
+
         </LinearLayout>
     </ScrollView>
 
-    <LinearLayout
-        android:id="@+id/linearLayout6"
-        android:layout_width="410dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:orientation="horizontal"
-        android:weightSum="1"
+    <Button
+        android:id="@+id/btnSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="@color/colorPrimaryVariant"
+        android:gravity="center"
+        android:text="@string/cerrar_sesi_n"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <Button
-            android:id="@+id/btnSesion"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/colorPrimaryVariant"
-            android:gravity="center"
-            android:text="@string/cerrar_sesi_n"
-            android:textSize="18sp"
-            android:textColor="@color/white" />
-    </LinearLayout>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="158dp"
         android:layout_height="91dp"
         android:layout_margin="14dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="28dp"
         android:src="@drawable/bimo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

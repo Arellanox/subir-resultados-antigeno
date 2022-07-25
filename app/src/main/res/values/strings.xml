@@ -17,7 +17,7 @@
     <string name="sexo">Sexo</string>
     <string name="resultadoAlert">¿Está seguro de registrar este paciente?</string>
     <string name="cancelar">Cancelar</string>
-    <string name="si_aceptar">Si, aceptar</string>
+    <string name="aceptar">Aceptar</string>
     <string name="fecha_de_toma">Fecha de toma</string>
     <string name="fecha_de_muestra">Fecha de muestra</string>
     <string name="tipo_de_muestra">Tipo de muestra</string>
@@ -32,4 +32,7 @@
     <string name="usuario">Usuario</string>
     <string name="example">example</string>
     <string name="inicia_sesi_n">Inicia sesión</string>
+    <string name="registrar_resultado">Registrar Resultado</string>
+    <string name="perfil_de_usuario">Perfil de Usuario</string>
+    <string name="resultado">Resultado</string>
 </resources>

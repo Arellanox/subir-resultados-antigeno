@@ -30,9 +30,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Registrar Resultado"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="@string/registrar_resultado"
             android:textColor="@color/white"
-            android:textSize="30sp" />
+            android:textSize="25sp" />
 
         <!--<LinearLayout
             android:layout_width="match_parent"
@@ -81,7 +83,7 @@
                 android:paddingTop="3dp"
                 android:paddingRight="20dp"
                 android:paddingBottom="5dp"
-                android:text="Resultado"
+                android:text="@string/resultado"
                 android:textColor="@color/black"
                 android:textSize="27sp"
                 android:textStyle="bold"
@@ -111,125 +113,6 @@
                 android:text="@string/nombre_paciente"
                 android:textColor="@color/colorTexto"
                 android:textSize="23sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorOnPrimary"
-                android:paddingLeft="20dp"
-                android:paddingTop="5dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="5dp"
-                android:text="@string/fecha_de_toma"
-                android:textColor="@color/white"
-                android:textSize="23sp"
-                android:tooltipText="Nombre del Paciente" />
-
-            <EditText
-                android:id="@+id/ResultFechaToma"
-                style="@style/Widget.AppCompat.EditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="15dp"
-                android:clickable="false"
-                android:ems="10"
-                android:focusable="false"
-                android:gravity="center"
-                android:hint="@string/selecciona_el_dia"
-                android:inputType="date"
-                android:selectAllOnFocus="false"
-                android:singleLine="false"
-                android:textColor="@color/colorTexto"
-                android:theme="@style/OulineInput"
-                android:visibility="visible"
-                android:drawableRight="@drawable/ic_baseline_calendar_today_24"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorOnPrimary"
-                android:paddingLeft="20dp"
-                android:paddingTop="5dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="5dp"
-                android:text="@string/fecha_de_muestra"
-                android:textColor="@color/white"
-                android:textSize="23sp"
-                android:tooltipText="Nombre del Paciente" />
-
-            <EditText android:id="@+id/ResultFechaMuestra"
-                style="@style/Widget.AppCompat.EditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="15dp"
-                android:clickable="false"
-                android:ems="10"
-                android:focusable="false"
-                android:gravity="center"
-                android:hint="@string/selecciona_el_dia"
-                android:inputType="date"
-                android:selectAllOnFocus="false"
-                android:singleLine="false"
-                android:textColor="@color/colorTexto"
-                android:theme="@style/OulineInput"
-                android:visibility="visible"
-                android:drawableRight="@drawable/ic_baseline_calendar_today_24"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorOnPrimary"
-                android:paddingLeft="20dp"
-                android:paddingTop="5dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="5dp"
-                android:text="@string/tipo_de_muestra"
-                android:textColor="@color/white"
-                android:textSize="23sp"
-                android:tooltipText="Nombre del Paciente" />
-
-            <Spinner
-                android:id="@+id/spinnerTrabajador"
-                style="@android:style/Widget.DeviceDefault.Spinner"
-                android:layout_width="match_parent"
-                android:layout_height="41dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:textColor="@color/colorTexto"
-                android:layout_marginBottom="15dp"
-                android:dropDownWidth="match_parent"
-                android:spinnerMode="dialog" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorOnPrimary"
-                android:paddingLeft="20dp"
-                android:paddingTop="5dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="5dp"
-                android:text="@string/clave"
-                android:textColor="@color/white"
-                android:textSize="23sp"
-                android:tooltipText="Nombre del Paciente" />
-
-            <EditText
-                android:id="@+id/signosAlcoholimetria"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="15dp"
-                android:gravity="center"
-                android:inputType=""
-                android:textColor="@color/colorTexto"
-                android:theme="@style/OulineInput" />
 
             <TextView
                 android:id="@+id/textView"

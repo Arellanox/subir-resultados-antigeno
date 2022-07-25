@@ -2,6 +2,7 @@ package com.example.refineria.ANTIGENO
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -62,11 +63,18 @@ class ANTIGENO_subir_resultado : AppCompatActivity() {
         val view = layoutInflater.inflate(R.layout.dialog_resultado, null)
 
         //Colocar valores al text
-        view.findViewById<TextView>(R.id.txtDialogAviso).text = "¿Desea agregar este paciente como $resultado?"
+        val txtResultado = view.findViewById<TextView>(R.id.txtDialogResultado)
+        view.findViewById<TextView>(R.id.txtDialogAviso).text = "¿Desea agregar el resultado a este pacientes?"
+        txtResultado.text = resultado
+        if (resultado == "Positivo"){
+            txtResultado.setTextColor(Color.RED)
+        }else{
+            txtResultado.setTextColor(Color.GREEN)
+        }
         view.findViewById<TextView>(R.id.DialogResultado).text = resultado
         view.findViewById<TextView>(R.id.txtDialogNombrePaciente).text = nombre
         view.findViewById<TextView>(R.id.txtDialogProcedencia).text = "${procedencia} - ${segmento}"
-        view.findViewById<TextView>(R.id.txtDialogEdad).text = edad
+        view.findViewById<TextView>(R.id.txtDialogEdad).text = "${edad} años"
         //Pasando vista al builder
         builder.setView(view)
 
@@ -75,7 +83,7 @@ class ANTIGENO_subir_resultado : AppCompatActivity() {
         dialog.show()
 
         view.btnDialogAceptar.setOnClickListener {
-            Toast.makeText(this, "A seleccionado el ${resultado}, por favor termine la siguiente información", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "A seleccionado el ${resultado}, por favor termine la siguiente información", Toast.LENGTH_LONG).show()
             val intent = Intent(this, ANTIGENO_resultado_formulario::class.java).apply {
                 putExtra("RESULTADO", resultado)
                 putExtra("NOMBRE", nombre)
@@ -86,8 +94,8 @@ class ANTIGENO_subir_resultado : AppCompatActivity() {
             dialog.dismiss()
         }
 
-        view.btnDialogCancelar.setOnClickListener {
-            dialog.dismiss()
-        }
+        //view.btnDialogCancelar.setOnClickListener {
+        //    dialog.dismiss()
+        //}
     }
 }

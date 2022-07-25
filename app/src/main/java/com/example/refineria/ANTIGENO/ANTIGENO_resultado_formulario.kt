@@ -25,11 +25,20 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_antigeno_resultado_formulario)
+        val bundle = intent.extras
+        val id_paciente = bundle?.getInt("ID_PACIENTE")
+        val nombre = bundle?.getString("NOMBRE")
+        val resultado = bundle?.getString("RESULTADO")
+
+        textNombrePasiente2.text = nombre.toString()
+        dialogResultado.text = resultado.toString()
+
+
         setupListener()
-        val date = getCurrentDateTime()
-        val dateInString = date.toString("yyyy/MM/dd")
-        ResultFechaToma.setText(dateInString)
-        ResultFechaMuestra.setText(dateInString)
+        //val date = getCurrentDateTime()
+        //val dateInString = date.toString("yyyy/MM/dd")
+        //ResultFechaToma.setText(dateInString)
+        //ResultFechaMuestra.setText(dateInString)
 
 
     }
@@ -37,8 +46,8 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
 
 
     private fun setupListener(){
-        ResultFechaToma.setOnClickListener{showDatePickerDialog()}
-        ResultFechaMuestra.setOnClickListener{showDatePickerDialog()}
+        //ResultFechaToma.setOnClickListener{showDatePickerDialog(1)}
+        //ResultFechaMuestra.setOnClickListener{showDatePickerDialog(2)}
         ResultEvidencia.setOnClickListener { dispatchTakePictureIntent() }
     }
 
@@ -106,14 +115,17 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
 
 
     //DatePicker
-    private fun showDatePickerDialog(){
-        val datepicker= DatePickerFragment({ day, month, year -> onDateSelected(day, month, year)})
+    private fun showDatePickerDialog(input: Int){
+        val datepicker= DatePickerFragment({ day, month, year -> onDateSelected(day, month, year, input)})
         datepicker.show(supportFragmentManager, "datePicker")
     }
 
-    fun onDateSelected(day:Int, month:Int, year:Int){
-        ResultFechaToma.setText("$year-${month+1}-$day")
-        ResultFechaMuestra.setText("$year-${month+1}-$day")
+    fun onDateSelected(day:Int, month:Int, year:Int, input: Int){
+        if(input == 1){
+            //ResultFechaToma.setText("$year-${month+1}-$day")
+        }else{
+            //ResultFechaMuestra.setText("$year-${month+1}-$day")
+        }
     }
     //Consultar fecha actual
     fun Date.toString(format: String, locale: Locale = Locale.getDefault()): String {
