@@ -48,6 +48,7 @@ class Antigeno : Fragment(), MainActivity.refreshList {
             Log.d("LISTENERFOCUS",hasFocus.toString())
         }
 
+<<<<<<< Updated upstream
         view.swipeToRefresh.setOnRefreshListener {
             Log.d("Swipe to refresh","ACTUALIZANDO LOS DATOS")
 
@@ -61,6 +62,8 @@ class Antigeno : Fragment(), MainActivity.refreshList {
 
         }
 
+=======
+>>>>>>> Stashed changes
         view.busqueda.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(submit: String?): Boolean {
                 val url = prefs.filtrarLista()
@@ -103,6 +106,13 @@ class Antigeno : Fragment(), MainActivity.refreshList {
         }catch (e: Exception){
 
         }
+        /*var estado = antigenos.recuperarEstadoLista()
+        while (estado==0){
+            //esperar a que se recupere la informacion
+            Log.d("esperando los valores",estado.toString())
+            estado = antigenos.recuperarEstadoLista()
+        }
+        recycle(antigenos.lista)*/
     }
 
     fun recycle(lista:List<PacientesAntigeno>){
