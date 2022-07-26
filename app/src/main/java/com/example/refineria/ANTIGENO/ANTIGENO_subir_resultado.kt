@@ -8,8 +8,11 @@ import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.example.refineria.MainActivity
 import com.example.refineria.R
+import kotlinx.android.synthetic.main.activity_antigeno_resultado_formulario.*
 import kotlinx.android.synthetic.main.activity_antigeno_subir_resultado.*
+import kotlinx.android.synthetic.main.activity_antigeno_subir_resultado.backHome
 import kotlinx.android.synthetic.main.dialog_resultado.view.*
 
 class ANTIGENO_subir_resultado : AppCompatActivity() {
@@ -44,6 +47,11 @@ class ANTIGENO_subir_resultado : AppCompatActivity() {
         fecha_registro_label?.text = fechaIngreso
         camper_label?.text = origen
         sexo_label?.text = sexo
+
+        backHome.setOnClickListener{
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
 
         //Enviar resultado
         PositivoButton.setOnClickListener {

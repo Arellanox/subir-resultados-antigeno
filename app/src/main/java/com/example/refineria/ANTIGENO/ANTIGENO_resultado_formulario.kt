@@ -15,6 +15,7 @@ import androidx.core.graphics.drawable.toBitmap
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.example.refineria.DatePickerFragment
+import com.example.refineria.MainActivity
 import com.example.refineria.R
 import com.example.refineria.network.MySingleton
 import com.example.refineria.sharedpreference.RefineriaApplication
@@ -49,6 +50,11 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
         //val dateInString = date.toString("yyyy/MM/dd")
         //ResultFechaToma.setText(dateInString)
         //ResultFechaMuestra.setText(dateInString)
+
+        backHome.setOnClickListener{
+            startActivity(Intent(this,MainActivity::class.java))
+            finish()
+        }
         ResultEvidencia.setOnClickListener { dispatchTakePictureIntent() }
         btnSubirResultado.setOnClickListener {
             if(imageFoto.drawable != null) {
@@ -59,7 +65,7 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
                 }
                 val imageBase64 = encodeImage(bitmap)
                 //val url = prefs.getLoginApi()
-                val url = "https://bimotest.com/Bimo-lab_test/movil/antigenos/api/subir_resultado.php"
+                val url = "http://bimotest.com/Bimo-lab_test/movil/antigenos/api/subir_resultado.php"
                 val result = JSONObject()
                 result.put("id_paciente",id_paciente)
                 result.put("id_usuario", prefs.getIdUsuario())
