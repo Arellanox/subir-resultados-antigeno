@@ -34,13 +34,15 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
         dialogResultado.text = resultado.toString()
 
 
-        setupListener()
+        //setupListener()
         //val date = getCurrentDateTime()
         //val dateInString = date.toString("yyyy/MM/dd")
         //ResultFechaToma.setText(dateInString)
         //ResultFechaMuestra.setText(dateInString)
+        ResultEvidencia.setOnClickListener { dispatchTakePictureIntent() }
+        btnSubirResultado.setOnClickListener {
 
-
+        }
     }
 
 
@@ -48,7 +50,6 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
     private fun setupListener(){
         //ResultFechaToma.setOnClickListener{showDatePickerDialog(1)}
         //ResultFechaMuestra.setOnClickListener{showDatePickerDialog(2)}
-        ResultEvidencia.setOnClickListener { dispatchTakePictureIntent() }
     }
 
     //bitmap

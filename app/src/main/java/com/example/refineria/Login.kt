@@ -51,8 +51,7 @@ class Login : AppCompatActivity() {
             session.put("usuario",txtUsuario.text.toString())
             session.put("password", txtPassword.text.toString())
 
-            val jsonObjectRequest = JsonObjectRequest(Request.Method.POST,url,session,
-                {
+            val jsonObjectRequest = JsonObjectRequest(Request.Method.POST,url,session, {
                         response ->
                     //Toast.makeText(this,"respuesta: ${response.toString()}",Toast.LENGTH_LONG).show()
                     Log.d("respuesta",response.toString())

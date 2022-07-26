@@ -18,6 +18,11 @@
         android:theme="@style/Theme.REFINERIA"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ANTIGENO.ANTIGENO_consultar_resultado"
+            android:exported="false"
+            android:label="@string/title_activity_antigeno_consultar_resultado"
+            android:theme="@style/Theme.REFINERIA.NoActionBar" />
+        <activity
             android:name=".ANTIGENO.ANTIGENO_resultado_formulario"
             android:exported="false" />
         <activity

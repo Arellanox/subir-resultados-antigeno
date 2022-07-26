@@ -140,7 +140,7 @@
             <ImageView
                 android:id="@+id/imageFoto"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="500dp"
                 android:layout_marginBottom="70dp"
                 tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
@@ -156,7 +156,7 @@
         tools:layout_editor_absoluteX="20dp">
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/btnSubirResultado"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginLeft="30dp"
