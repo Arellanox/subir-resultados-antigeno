@@ -64,6 +64,7 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
                 result.put("id_paciente",id_paciente)
                 result.put("id_usuario", prefs.getIdUsuario())
                 result.put("foto", imageBase64)
+                result.put("resultado", resultado)
 
                 val jsonObjectRequest = JsonObjectRequest(Request.Method.POST,url,result, {
                         response ->
