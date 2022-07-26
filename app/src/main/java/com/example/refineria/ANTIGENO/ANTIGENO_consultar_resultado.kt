@@ -1,5 +1,6 @@
 package com.example.refineria.ANTIGENO
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -20,13 +21,21 @@ class ANTIGENO_consultar_resultado : AppCompatActivity() {
         val bundle = intent.extras
         val id_paciente = bundle?.getInt("id_paciente")
         val nombre = bundle?.getString("NOMBRE")
-
+        val resultado = bundle?.getString("RESULTADO")
+        txtNombreReporte.text = nombre
+        txtResultadoReporte.text = resultado
+        if (resultado == "Positivo"){
+            txtResultadoReporte.setTextColor(Color.RED)
+        }else{
+            txtResultadoReporte.setTextColor(Color.GREEN)
+        }
         consultarPDF(id_paciente)
+        backHome.setOnClickListener { finish() }
 
     }
 
     fun consultarPDF(id_paciente: Int?){
-        Toast.makeText(this,"Enviando Json, idpaciente: ${id_paciente}", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this,"Verifique los datos de su paciente en el reporte", Toast.LENGTH_SHORT).show()
         //var url = prefs.getURLPDF()
         var url = "http://bimotest.com/Bimo-lab_test/movil/antigenos/pdf/pdf.php"
         val arreglo = JSONObject()
@@ -34,7 +43,7 @@ class ANTIGENO_consultar_resultado : AppCompatActivity() {
         val jsonObjectRequest = JsonObjectRequest(Request.Method.POST,url,arreglo, {
                 response ->
 
-            Toast.makeText(this,"Respuesta", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this,"Respuesta", Toast.LENGTH_SHORT).show()
             //Toast.makeText(this,"respuesta: ${response.toString()}",Toast.LENGTH_LONG).show()
             Log.d("respuesta",response.toString())
             val json = response.getJSONObject("response");
@@ -42,11 +51,11 @@ class ANTIGENO_consultar_resultado : AppCompatActivity() {
 
             if (codigo==1){
                 var urlPdf = json.getString("datos")
-                Toast.makeText(this,"Respuesta: ${urlPdf}", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this,"Respuesta: ${urlPdf}", Toast.LENGTH_SHORT).show()
                 txtURLRespuesta.text = urlPdf
 
             }else{
-                Toast.makeText(this,"Error: PDF no encontrado", Toast.LENGTH_LONG).show()
+                //Toast.makeText(this,"Error: PDF no encontrado", Toast.LENGTH_LONG).show()
             }
 
         },{

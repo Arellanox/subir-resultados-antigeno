@@ -48,8 +48,9 @@ class procesar_paciente : AppCompatActivity() {
             val intent = Intent(this, ANTIGENO_consultar_resultado::class.java).apply {
                 putExtra("id_paciente", id_paciente)
                 putExtra("NOMBRE", nombre)
+                putExtra("RESULTADO", resultado)
             }
-            Toast.makeText(this,"Paciente: ${id_paciente}", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this,"Paciente: ${id_paciente}", Toast.LENGTH_SHORT).show()
             this.startActivity(intent)
         }
 

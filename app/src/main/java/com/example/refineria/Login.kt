@@ -71,8 +71,6 @@ class Login : AppCompatActivity() {
                         prefs.savePuntoTrabajoUsuario(datos.getString("punto_trabajo_id"))
                         prefs.saveLugarTomaUsuario(datos.getString("lugar_de_toma"))
                         goToDetail()
-                        Toast.makeText(this,"Profesion: ${datos.getString("profesion")}",Toast.LENGTH_LONG).show()
-                        Toast.makeText(this,"Cedula: ${datos.getString("cedula")}",Toast.LENGTH_LONG).show()
                         Log.d("pref n ombre", prefs.getNombreUsuario())
                     }else{
                         Toast.makeText(this,"Error: Usuario y/o password incorrectos",Toast.LENGTH_LONG).show()

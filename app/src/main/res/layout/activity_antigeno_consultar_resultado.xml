@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".ANTIGENO.ANTIGENO_consultar_resultado">
 
+
+
     <LinearLayout
         android:id="@+id/linearLayout5"
         android:layout_width="0dp"
@@ -30,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:text="Generar formato"
+            android:text="Resultado"
             android:textColor="@color/white"
             android:textSize="24sp" />
 
@@ -46,10 +48,9 @@
         android:theme="@style/OulineInput"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
-        app:layout_constraintVertical_bias="0.043">
+        app:layout_constraintVertical_bias="0.01999998">
 
         <TextView
             android:id="@+id/textView20"
@@ -58,16 +59,77 @@
             android:layout_marginBottom="20dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Formulario de formato"
+            android:text="Reporte de Antigeno"
             android:textColor="@color/colorTexto"
             android:textSize="25sp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="URL del archivo: "
-            android:textSize="20sp" />
+            android:background="@color/colorFondoOscuro"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="5dp"
+            android:text="@string/nombre"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:tooltipText="Nombre del Paciente" />
+
+        <TextView
+            android:id="@+id/txtNombreReporte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/nombre_paciente"
+            android:textColor="@color/black"
+            android:textSize="27sp"
+            android:tooltipText="Nombre del Paciente" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorFondoOscuro"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="5dp"
+            android:text="@string/resultado"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:tooltipText="Nombre del Paciente" />
+
+        <TextView
+            android:id="@+id/txtResultadoReporte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/resultado"
+            android:textColor="@color/black"
+            android:textSize="27sp"
+            android:textStyle="bold"
+            android:tooltipText="Nombre del Paciente" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorFondoOscuro"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="5dp"
+            android:text="@string/url_del_pdf"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:tooltipText="Nombre del Paciente" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/descargar_reporte"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/txtURLRespuesta"
@@ -75,30 +137,9 @@
             android:layout_height="wrap_content"
             android:autoLink="web"
             android:text=""
-            android:textSize="20sp" />
+            android:textSize="24sp" />
 
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout8"
-        app:layout_constraintVertical_bias="0.93"
-        tools:layout_editor_absoluteX="20dp">
-
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorFondoOscuro"
-            android:text="Generar Formato"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

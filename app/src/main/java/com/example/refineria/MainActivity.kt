@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity(){
             when(it.itemId){
                 R.id.ic_perfil -> replaceFragment(perfilFragment)
                 R.id.ic_home-> replaceFragment(antigenoFragment)
-                R.id.ic_search -> replaceFragment(supervisionesFragment)
+                //R.id.ic_search -> replaceFragment(supervisionesFragment)
 
             }
             true
