@@ -51,6 +51,22 @@ class Antigeno : Fragment(), MainActivity.refreshList {
             Log.d("LISTENERFOCUS",hasFocus.toString())
         }
 
+        view.swipeToRefresh.setOnRefreshListener {
+            Log.d("Swipe to refresh","ACTUALIZANDO LOS DATOS")
+            /*var indicador = 0
+            antigenos.lista = emptyList()
+            antigenos.obtenerListaPacientesAntigeno(requireContext())
+            while (indicador==0){
+                indicador = antigenos.lista.size
+            }*/
+            Handler(Looper.getMainLooper()).postDelayed({
+                /* Create an Intent that will start the Menu-Activity. */
+                recycle(antigenos.lista)
+                view.swipeToRefresh.isRefreshing = false
+            }, 2000)
+
+        }
+
         view.busqueda.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(submit: String?): Boolean {
                 val url = prefs.filtrarLista()
@@ -93,13 +109,6 @@ class Antigeno : Fragment(), MainActivity.refreshList {
         }catch (e: Exception){
 
         }
-        /*var estado = antigenos.recuperarEstadoLista()
-        while (estado==0){
-            //esperar a que se recupere la informacion
-            Log.d("esperando los valores",estado.toString())
-            estado = antigenos.recuperarEstadoLista()
-        }
-        recycle(antigenos.lista)*/
     }
 
     fun recycle(lista:List<PacientesAntigeno>){
