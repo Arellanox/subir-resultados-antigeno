@@ -26,7 +26,26 @@ class Prefs (val context:Context) {
     val SHARED_USER_SEXO = "Sexo"
     val SHARED_USER_NSS = "Nss"
 
+
+    //urls para la aplicacion
+    val antigenos_obtener_lista = "http://bimotest.com/Bimo-lab_test/movil/antigenos/api/antigenos_obtener_lista.php"//"https://bimo-lab.com/movil/antigenos/api/antigenos_obtener_lista.php"
+    val login_api = "http://bimotest.com/Bimo-lab_test/movil/antigenos/api/login-api.php"//"https://bimo-lab.com/movil/antigenos/api/login-api.php"
+    val filtrar_lista = "http://bimotest.com/Bimo-lab_test/movil/antigenos/api/filtrar_lista.php"
+
     val storage = context.getSharedPreferences(SHARED_NAME, 0)
+
+    //urls
+    fun getAntObtenerLista(): String {
+        return antigenos_obtener_lista
+    }
+
+    fun getLoginApi(): String {
+        return login_api
+    }
+
+    fun filtrarLista():String{
+        return filtrar_lista
+    }
 
     //Inicio de sesión
     fun saveName(name:String){

@@ -2,15 +2,22 @@ package com.example.refineria.classes
 
 import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.example.refineria.network.MySingleton
+import com.example.refineria.sharedpreference.RefineriaApplication.Companion.prefs
 
 class PacientesAntigenoProvider(var lista: List<PacientesAntigeno> = listOf<PacientesAntigeno>()) {
+    var estadoLista:Int? = null
 
+    init {
+        this.estadoLista = 0
+    }
 
     fun obtenerListaPacientesAntigeno(context : Context) {
-        val url = "https://bimo-lab.com/movil/antigenos/api/antigenos_obtener_lista.php"
+        //val url = "https://bimo-lab.com/movil/antigenos/api/antigenos_obtener_lista.php"
+        val url = prefs.getAntObtenerLista()
         val jsonObjectRequest = JsonObjectRequest(Request.Method.POST,url,null,{
                 response ->
             val json = response.getJSONObject("response")
@@ -37,8 +44,9 @@ class PacientesAntigenoProvider(var lista: List<PacientesAntigeno> = listOf<Paci
                         paciente.getString("procedenciapdf"),
                         paciente.getInt("edad"))
                 }
+                cambiarEstadoLista()
             }else{
-                //Toast.makeText(this,"No se ha podido cargar la vista principal",Toast.LENGTH_SHORT).show()
+                Toast.makeText(context,"Error: Inicie sesión nuevamente", Toast.LENGTH_LONG).show()
             }
             Log.d("fin de la funcion volley","HA TERMINADO LA FUNCION QUE CARGA LA VISTA PRINCIPAL")
             Log.d("lista de la clase", lista.toString())
@@ -47,5 +55,14 @@ class PacientesAntigenoProvider(var lista: List<PacientesAntigeno> = listOf<Paci
             Log.d("error volley lista",error.toString())
         })
         MySingleton.getInstance(context).addToRequestQueue(jsonObjectRequest)
+    }
+
+    fun cambiarEstadoLista(){
+        this.estadoLista = 1
+        //return this.estadoLista!!
+    }
+
+    fun recuperarEstadoLista():Int{
+        return this.estadoLista!!
     }
 }
