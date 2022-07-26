@@ -1,8 +1,10 @@
 package com.example.refineria.ANTIGENO
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +13,7 @@ import android.provider.MediaStore
 import android.util.Base64
 import android.util.Log
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.core.graphics.drawable.toBitmap
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
@@ -31,6 +34,9 @@ import java.util.*
 class ANTIGENO_resultado_formulario : AppCompatActivity() {
     val listMuestras = ArrayList<String>()
     val ListIDMuestras = ArrayList<String>()
+    val permisoCamara = android.Manifest.permission.CAMERA
+    val permisoWriteStorage = android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+    val permisoReadStorage = android.Manifest.permission.READ_EXTERNAL_STORAGE
 
     @SuppressLint("SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,10 +61,16 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
             startActivity(Intent(this,MainActivity::class.java))
             finish()
         }
-        ResultEvidencia.setOnClickListener { dispatchTakePictureIntent() }
+        ResultEvidencia.setOnClickListener {
+            pedirPermisos()
+            //dispatchTakePictureIntent()
+
+        }
+
         btnSubirResultado.setOnClickListener {
-            btnSubirResultado.isEnabled = false
+
             if(imageFoto.drawable != null) {
+                btnSubirResultado.isEnabled = false
                 val drawable = imageFoto.drawable
                 val bitmap = drawable.toBitmap()
                 bitmap.apply {
@@ -81,6 +93,8 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
                     val codigo = json.getInt("code")
 
                     if (codigo==1){
+                        startActivity(Intent(this,MainActivity::class.java))
+                        finish()
                         Toast.makeText(this,"Resultado guardado", Toast.LENGTH_LONG).show()
                     }else{
                         Toast.makeText(this,"Error: Mostrar error de php?", Toast.LENGTH_LONG).show()
@@ -95,9 +109,6 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
             }else{
                 Toast.makeText(this,"Imagen no insertada", Toast.LENGTH_LONG).show()
             }
-
-            startActivity(Intent(this,MainActivity::class.java))
-            finish()
         }
     }
 
@@ -151,11 +162,18 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
     //Camera
     val REQUEST_IMAGE_CAPTURE = 1
 
-    private fun dispatchTakePictureIntent() {
-        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
+    fun dispatchTakePictureIntent() {
+        /*Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
             takePictureIntent.resolveActivity(packageManager)?.also {
                 startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
             }
+        }*/
+        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        if(intent.resolveActivity(packageManager)!=null){
+            startActivityForResult(intent,REQUEST_IMAGE_CAPTURE)
+        }else{
+            startActivityForResult(intent,REQUEST_IMAGE_CAPTURE)
+            Log.d("intent","NO SE ABRE LA CAMARA")
         }
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -191,5 +209,40 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
     }
     fun getCurrentDateTime(): Date {
         return Calendar.getInstance().time
+    }
+
+    fun pedirPermisos(){
+        val debo = ActivityCompat.shouldShowRequestPermissionRationale(this,permisoCamara)
+        if(debo){
+            solicitudPermisos()
+        }else{
+            solicitudPermisos()
+        }
+    }
+
+    fun solicitudPermisos(){
+        requestPermissions(arrayOf(permisoCamara,permisoWriteStorage,permisoReadStorage),REQUEST_IMAGE_CAPTURE)
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        when(requestCode){
+            REQUEST_IMAGE_CAPTURE -> {
+                if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    //tenemos permiso
+                        Log.d("permiso","TENEMOS PERMISO")
+                    dispatchTakePictureIntent()
+                }else{
+                    //no tenemos el permismo
+                    Toast.makeText(this,"No tienes permiso para usar la camara",Toast.LENGTH_LONG).show()
+                    Log.d("permiso","NO TENEMOS PERMISO")
+                }
+            }
+        }
     }
 }
