@@ -57,6 +57,7 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
         }
         ResultEvidencia.setOnClickListener { dispatchTakePictureIntent() }
         btnSubirResultado.setOnClickListener {
+            btnSubirResultado.isEnabled = false
             if(imageFoto.drawable != null) {
                 val drawable = imageFoto.drawable
                 val bitmap = drawable.toBitmap()
@@ -94,6 +95,9 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
             }else{
                 Toast.makeText(this,"Imagen no insertada", Toast.LENGTH_LONG).show()
             }
+
+            startActivity(Intent(this,MainActivity::class.java))
+            finish()
         }
     }
 
