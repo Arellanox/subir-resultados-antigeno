@@ -7,6 +7,7 @@ import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.example.refineria.network.MySingleton
 import com.example.refineria.sharedpreference.RefineriaApplication.Companion.prefs
+import org.json.JSONObject
 
 class PacientesAntigenoProvider(var lista: List<PacientesAntigeno> = listOf<PacientesAntigeno>()) {
     var estadoLista:Int? = null
@@ -18,7 +19,9 @@ class PacientesAntigenoProvider(var lista: List<PacientesAntigeno> = listOf<Paci
     fun obtenerListaPacientesAntigeno(context : Context) {
         //val url = "https://bimo-lab.com/movil/antigenos/api/antigenos_obtener_lista.php"
         val url = prefs.getAntObtenerLista()
-        val jsonObjectRequest = JsonObjectRequest(Request.Method.POST,url,null,{
+        val data = JSONObject()
+        data.put("usuario", prefs.getIdUsuario())
+        val jsonObjectRequest = JsonObjectRequest(Request.Method.POST,url,data,{
                 response ->
             val json = response.getJSONObject("response")
             val code = json.getInt("code")
