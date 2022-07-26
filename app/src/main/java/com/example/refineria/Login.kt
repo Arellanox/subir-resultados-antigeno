@@ -45,8 +45,8 @@ class Login : AppCompatActivity() {
     fun accessToDetail(){
         //Toast.makeText(this,"boton presionado de inicio",Toast.LENGTH_LONG).show()
         if(txtUsuario.text.toString().isNotEmpty() && txtPassword.text.toString().isNotEmpty()){
-            //val url = prefs.getLoginApi()
-            val url = "https://bimo-lab.com/movil/antigenos/api/login-api.php"
+            val url = prefs.getLoginApi()
+            //val url = "https://bimo-lab.com/movil/antigenos/api/login-api.php"
             val session = JSONObject()
             session.put("usuario",txtUsuario.text.toString())
             session.put("password", txtPassword.text.toString())

@@ -9,9 +9,19 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Base64
+import android.util.Log
+import android.widget.Toast
+import androidx.core.graphics.drawable.toBitmap
+import com.android.volley.Request
+import com.android.volley.toolbox.JsonObjectRequest
 import com.example.refineria.DatePickerFragment
 import com.example.refineria.R
+import com.example.refineria.network.MySingleton
+import com.example.refineria.sharedpreference.RefineriaApplication
+import com.example.refineria.sharedpreference.RefineriaApplication.Companion.prefs
 import kotlinx.android.synthetic.main.activity_antigeno_resultado_formulario.*
+import kotlinx.android.synthetic.main.activity_login.*
+import org.json.JSONObject
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 import java.text.SimpleDateFormat
@@ -41,7 +51,42 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
         //ResultFechaMuestra.setText(dateInString)
         ResultEvidencia.setOnClickListener { dispatchTakePictureIntent() }
         btnSubirResultado.setOnClickListener {
+            if(imageFoto.drawable != null) {
+                val drawable = imageFoto.drawable
+                val bitmap = drawable.toBitmap()
+                bitmap.apply {
+                    var textImagen = toBase64String()
+                }
+                val imageBase64 = encodeImage(bitmap)
+                //val url = prefs.getLoginApi()
+                val url = "https://bimotest.com/Bimo-lab_test/movil/antigenos/api/subir_resultado.php"
+                val result = JSONObject()
+                result.put("id_paciente",id_paciente)
+                result.put("id_usuario", prefs.getIdUsuario())
+                result.put("foto", imageBase64)
 
+                val jsonObjectRequest = JsonObjectRequest(Request.Method.POST,url,result, {
+                        response ->
+                    //Toast.makeText(this,"respuesta: ${response.toString()}",Toast.LENGTH_LONG).show()
+                    Log.d("respuesta",response.toString())
+                    val json = response.getJSONObject("response");
+                    val codigo = json.getInt("code")
+
+                    if (codigo==1){
+                        Toast.makeText(this,"Resultado guardado", Toast.LENGTH_LONG).show()
+                    }else{
+                        Toast.makeText(this,"Error: Mostrar error de php?", Toast.LENGTH_LONG).show()
+                    }
+
+                },{
+                        error ->
+                    Toast.makeText(this,"Error: ${error.toString()}", Toast.LENGTH_LONG).show()
+                    Log.d("error volley",error.toString())
+                })
+                MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest)
+            }else{
+                Toast.makeText(this,"Imagen no insertada", Toast.LENGTH_LONG).show()
+            }
         }
     }
 
