@@ -36,9 +36,6 @@ class Antigeno : Fragment(), MainActivity.refreshList {
     private var layoutManager: RecyclerView.LayoutManager? = null
     private var adapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>? = null
     var antigenos = PacientesAntigenoProvider()
-    var itemSearchView:SearchView?=null
-    var listaActual:List<PacientesAntigeno>?=null
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container : ViewGroup?,
@@ -53,13 +50,9 @@ class Antigeno : Fragment(), MainActivity.refreshList {
 
         view.swipeToRefresh.setOnRefreshListener {
             Log.d("Swipe to refresh","ACTUALIZANDO LOS DATOS")
-            /*var indicador = 0
-            antigenos.lista = emptyList()
+
             antigenos.obtenerListaPacientesAntigeno(requireContext())
-            while (indicador==0){
-                indicador = antigenos.lista.size
-            }*/
-            antigenos.obtenerListaPacientesAntigeno(requireContext())
+
             Handler(Looper.getMainLooper()).postDelayed({
                 /* Create an Intent that will start the Menu-Activity. */
                 recycle(antigenos.lista)
@@ -113,7 +106,6 @@ class Antigeno : Fragment(), MainActivity.refreshList {
     }
 
     fun recycle(lista:List<PacientesAntigeno>){
-        listaActual = lista
         try{
             recyclerViewPacientesAntigeno.apply {
                 // set a LinearLayoutManager to handle Android

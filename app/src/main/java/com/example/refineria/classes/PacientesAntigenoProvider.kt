@@ -49,7 +49,6 @@ class PacientesAntigenoProvider(var lista: List<PacientesAntigeno> = listOf<Paci
                 }
                 cambiarEstadoLista()
             }else{
-                cambiarEstadoLista()
                 Toast.makeText(context,"Error: Inicie sesión nuevamente", Toast.LENGTH_LONG).show()
             }
             Log.d("fin de la funcion volley","HA TERMINADO LA FUNCION QUE CARGA LA VISTA PRINCIPAL")
