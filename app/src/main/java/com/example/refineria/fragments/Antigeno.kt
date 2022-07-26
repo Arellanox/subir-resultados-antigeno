@@ -43,6 +43,7 @@ class Antigeno : Fragment(), MainActivity.refreshList {
     ): View?{
         val view = inflater.inflate(R.layout.fragment_antigeno, container, false)
         antigenos.obtenerListaPacientesAntigeno(requireContext())
+        listarPacientes()
 
         view.busqueda.setOnQueryTextFocusChangeListener{v, hasFocus ->
             Log.d("LISTENERFOCUS",hasFocus.toString())
@@ -94,12 +95,24 @@ class Antigeno : Fragment(), MainActivity.refreshList {
     }
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
         super.onViewCreated(itemView, savedInstanceState)
+        /*Toast.makeText(activity,"Cargando lista de pacientes...",Toast.LENGTH_SHORT).show()
+        try{
+            Handler(Looper.getMainLooper()).postDelayed({
+                /* Create an Intent that will start the Menu-Activity. */
+                recycle(antigenos.lista)
+            }, 2000)
+        }catch (e: Exception){
+
+        }*/
+    }
+
+    fun listarPacientes(){
         Toast.makeText(activity,"Cargando lista de pacientes...",Toast.LENGTH_SHORT).show()
         try{
             Handler(Looper.getMainLooper()).postDelayed({
                 /* Create an Intent that will start the Menu-Activity. */
                 recycle(antigenos.lista)
-            }, 1500)
+            }, 2000)
         }catch (e: Exception){
 
         }
