@@ -59,6 +59,7 @@ class Antigeno : Fragment(), MainActivity.refreshList {
             while (indicador==0){
                 indicador = antigenos.lista.size
             }*/
+            antigenos.obtenerListaPacientesAntigeno(requireContext())
             Handler(Looper.getMainLooper()).postDelayed({
                 /* Create an Intent that will start the Menu-Activity. */
                 recycle(antigenos.lista)
