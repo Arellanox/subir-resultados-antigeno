@@ -60,7 +60,7 @@ class Antigeno : Fragment(), MainActivity.refreshList {
                 /* Create an Intent that will start the Menu-Activity. */
                 recycle(antigenos.lista)
                 view.swipeToRefresh.isRefreshing = false
-            }, 2000)
+            }, 1500)
 
         }
 
@@ -157,7 +157,7 @@ class Antigeno : Fragment(), MainActivity.refreshList {
             Handler(Looper.getMainLooper()).postDelayed({
                 /* Create an Intent that will start the Menu-Activity. */
                 recycle(antigenos.lista)
-            }, 2000)
+            }, 1500)
         }catch (e: Exception){
 
         }

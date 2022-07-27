@@ -1,6 +1,8 @@
 package com.example.refineria.ANTIGENO
 
+import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -29,13 +31,12 @@ class ANTIGENO_consultar_resultado : AppCompatActivity() {
         }else{
             txtResultadoReporte.setTextColor(Color.GREEN)
         }
-        consultarPDF(id_paciente)
-        backHome.setOnClickListener { finish() }
 
+        backHome.setOnClickListener { finish() }
+        btnDescargarPDF.setOnClickListener { consultarPDF(id_paciente) }
     }
 
     fun consultarPDF(id_paciente: Int?){
-        Toast.makeText(this,"Verifique los datos de su paciente en el reporte", Toast.LENGTH_SHORT).show()
         //var url = prefs.getURLPDF()
         var url = "http://bimotest.com/Bimo-lab_test/movil/antigenos/pdf/pdf.php"
         val arreglo = JSONObject()
@@ -52,7 +53,7 @@ class ANTIGENO_consultar_resultado : AppCompatActivity() {
             if (codigo==1){
                 var urlPdf = json.getString("datos")
                 //Toast.makeText(this,"Respuesta: ${urlPdf}", Toast.LENGTH_SHORT).show()
-                txtURLRespuesta.text = urlPdf
+                DescargarPDF(urlPdf)
 
             }else{
                 //Toast.makeText(this,"Error: PDF no encontrado", Toast.LENGTH_LONG).show()
@@ -65,5 +66,11 @@ class ANTIGENO_consultar_resultado : AppCompatActivity() {
         })
         MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest)
 
+    }
+
+    fun DescargarPDF(url:String?){
+        val i = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(i)
+        Toast.makeText(this,"Verifique los datos de su paciente en el reporte", Toast.LENGTH_LONG).show()
     }
 }

@@ -113,25 +113,6 @@
             android:tooltipText="Nombre del Paciente" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorFondoOscuro"
-            android:paddingLeft="20dp"
-            android:paddingTop="5dp"
-            android:paddingRight="20dp"
-            android:paddingBottom="5dp"
-            android:text="@string/url_del_pdf"
-            android:textColor="@color/white"
-            android:textSize="26sp"
-            android:tooltipText="Nombre del Paciente" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/descargar_reporte"
-            android:textSize="24sp" />
-
-        <TextView
             android:id="@+id/txtURLRespuesta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -139,6 +120,33 @@
             android:text=""
             android:textSize="24sp" />
 
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="72dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btnDescargarPDF"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#CC0000"
+            android:drawableLeft="@drawable/ic_baseline_picture_as_pdf_24"
+            android:text="@string/descargar_reporte"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
