@@ -67,7 +67,10 @@ class Antigeno : Fragment(), MainActivity.refreshList {
         view.busqueda.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(submit: String?): Boolean {
 
+                antigenos.lista = emptyList()
+                recycle(antigenos.lista)
                 if (submit != null) {
+                    listarPacientes()
                     enviarConsulta(submit)
                 }
 
@@ -99,7 +102,34 @@ class Antigeno : Fragment(), MainActivity.refreshList {
                     response ->
                 //Toast.makeText(activity,"respuesta: ${response.toString()}",Toast.LENGTH_LONG).show()
                 Log.d("respuesta",response.toString())
+                val json = response.getJSONObject("response")
+                val code = json.getInt("code")
 
+                if(code==1){
+                    val datos = json.getJSONArray("datos")
+
+                    antigenos.lista = emptyList()
+                    for (i in 0..datos.length()-1){
+                        val paciente = datos.getJSONObject(i)
+                        antigenos.lista += PacientesAntigeno(
+                            paciente.getInt("id_paciente"),
+                            paciente.getString("folio"),
+                            paciente.getString("folioOrden"),
+                            paciente.getString("nombre"),
+                            paciente.getString("resultado"),
+                            paciente.getString("fechaResultado"),
+                            paciente.getString("prefolio"),
+                            paciente.getString("procedencia"),
+                            paciente.getString("sexo"),
+                            paciente.getString("fechaIngreso"),
+                            paciente.getString("indicador"),
+                            paciente.getString("origen"),
+                            paciente.getString("lugarextra"),
+                            paciente.getString("procedenciapdf"),
+                            paciente.getInt("edad"))
+                    }
+                    listarPacientes()
+                }
 
             },{
                     error ->
