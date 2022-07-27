@@ -27,6 +27,7 @@ import com.example.refineria.procesar_paciente
 import com.example.refineria.sharedpreference.RefineriaApplication.Companion.prefs
 import kotlinx.android.synthetic.main.fragment_antigeno.*
 import kotlinx.android.synthetic.main.fragment_antigeno.view.*
+import org.json.JSONArray
 import org.json.JSONObject
 import java.lang.ClassCastException
 import kotlin.collections.contains as contains1
@@ -64,23 +65,11 @@ class Antigeno : Fragment(), MainActivity.refreshList {
 
         view.busqueda.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(submit: String?): Boolean {
-                val url = prefs.filtrarLista()
-                val parametro = JSONObject()
-                parametro.put("parametro",submit)
 
-                val jsonObjectRequest = JsonObjectRequest(Request.Method.POST,url,parametro,
-                    {
-                            response ->
-                        //Toast.makeText(this,"respuesta: ${response.toString()}",Toast.LENGTH_LONG).show()
-                        Log.d("respuesta",response.toString())
+                if (submit != null) {
+                    enviarConsulta(submit)
+                }
 
-
-                    },{
-                            error ->
-
-                        Log.d("error volley",error.toString())
-                    })
-                MySingleton.getInstance(requireContext()).addToRequestQueue(jsonObjectRequest)
                 return true
             }
 
@@ -92,6 +81,30 @@ class Antigeno : Fragment(), MainActivity.refreshList {
         })
 
         return view
+    }
+
+    fun enviarConsulta(texto:String){
+        val url = prefs.filtrarLista()
+        val id_usuario = prefs.getIdCargoUsuario()
+        val parametro = JSONObject()
+        parametro.put("parametro",texto)
+        parametro.put("usuario", id_usuario)
+
+        Log.d("datos filtro",parametro.toString())
+
+        val jsonObjectRequest = JsonObjectRequest(Request.Method.POST,url,parametro,
+            {
+                    response ->
+                //Toast.makeText(activity,"respuesta: ${response.toString()}",Toast.LENGTH_LONG).show()
+                Log.d("respuesta",response.toString())
+
+
+            },{
+                    error ->
+
+                Log.d("error volley",error.toString())
+            })
+        MySingleton.getInstance(requireContext()).addToRequestQueue(jsonObjectRequest)
     }
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
         super.onViewCreated(itemView, savedInstanceState)
