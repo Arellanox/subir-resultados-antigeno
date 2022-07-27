@@ -15,6 +15,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
+import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.example.refineria.MainActivity
 import com.example.refineria.R
@@ -85,12 +86,13 @@ class Antigeno : Fragment(), MainActivity.refreshList {
 
     fun enviarConsulta(texto:String){
         val url = prefs.filtrarLista()
-        val id_usuario = prefs.getIdCargoUsuario()
+        val id_usuario = prefs.getIdUsuario()
         val parametro = JSONObject()
         parametro.put("parametro",texto)
         parametro.put("usuario", id_usuario)
 
         Log.d("datos filtro",parametro.toString())
+        Log.d("url filtro",url)
 
         val jsonObjectRequest = JsonObjectRequest(Request.Method.POST,url,parametro,
             {
