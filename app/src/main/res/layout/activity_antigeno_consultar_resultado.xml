@@ -44,7 +44,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView20"
-        app:layout_constraintVertical_bias="0.060000002">
+        app:layout_constraintVertical_bias="0.120000005">
 
         <TextView
             android:id="@+id/textView4"
@@ -55,10 +55,10 @@
             android:paddingTop="5dp"
             android:paddingRight="20dp"
             android:paddingBottom="5dp"
-            android:text="@string/nombre"
             android:textColor="@color/ColorTextAccion"
             android:textSize="24sp"
             android:textStyle="bold"
+            android:text="@string/nombre"
             android:tooltipText="Nombre del Paciente" />
 
         <TextView
@@ -157,11 +157,11 @@
         android:id="@+id/textView20"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="25dp"
         android:layout_weight="1"
         android:gravity="center"
         android:text="@string/reportePDF"
-        android:textColor="@color/colorTexto"
+        android:textColor="@color/ColorTextoBold"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"

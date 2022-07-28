@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
@@ -21,10 +22,8 @@ import com.example.refineria.DatePickerFragment
 import com.example.refineria.MainActivity
 import com.example.refineria.R
 import com.example.refineria.network.MySingleton
-import com.example.refineria.sharedpreference.RefineriaApplication
 import com.example.refineria.sharedpreference.RefineriaApplication.Companion.prefs
 import kotlinx.android.synthetic.main.activity_antigeno_resultado_formulario.*
-import kotlinx.android.synthetic.main.activity_login.*
 import org.json.JSONObject
 import java.io.ByteArrayOutputStream
 import java.io.IOException
@@ -48,7 +47,12 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
         val resultado = bundle?.getString("RESULTADO")
 
         textNombrePasiente2.text = nombre.toString()
-        dialogResultado.text = resultado.toString()
+        TxtResultadoGuardar.text = resultado.toString()
+        if (resultado == "Positivo"){
+            TxtResultadoGuardar.setTextColor(Color.RED)
+        }else{
+            TxtResultadoGuardar.setTextColor(Color.GREEN)
+        }
 
 
         //setupListener()

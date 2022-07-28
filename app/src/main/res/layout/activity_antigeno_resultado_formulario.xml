@@ -4,37 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundColor"
     android:screenOrientation="portrait"
     tools:context=".ANTIGENO.ANTIGENO_resultado_formulario">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/registrar_resultado"
+        android:textColor="@color/ColorTextoBold"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
 
     <LinearLayout
         android:id="@+id/linearLayout5"
         android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:background="@color/colorPrimaryVariant"
+        android:layout_height="40dp"
+        android:background="@color/ColorBannerSuperiorFragment"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-            android:id="@+id/backHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryVariant"
-            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
-
         <TextView
+            android:id="@+id/backHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:text="@string/registrar_resultado"
-            android:textColor="@color/white"
-            android:textSize="25sp" />
+            android:textStyle="bold"
+            android:textColor="@color/ColorTituloActivity"
+            android:textSize="18sp"
+            android:text="@string/cancelar" />
 
         <!--<LinearLayout
             android:layout_width="match_parent"
@@ -55,97 +62,88 @@
 
     </LinearLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="59dp"
-        android:layout_marginBottom="70dp"
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+        app:layout_constraintTop_toBottomOf="@+id/textView6">
 
-        <LinearLayout
+
+        <TextView
+            android:id="@+id/TxtResultadoGuardar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingTop="3dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="5dp"
+            android:text="@string/resultado"
+            android:textColor="@color/black"
+            android:textSize="27sp"
+            android:textStyle="bold"
+            android:tooltipText="Nombre del Paciente" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/ColorTextoBanner"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="5dp"
+            android:text="@string/nombre"
+            android:textColor="@color/ColorTextAccion"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:tooltipText="Nombre del Paciente" />
+
+        <TextView
+            android:id="@+id/textNombrePasiente2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:text="@string/nombre_paciente"
+            android:textColor="@color/ColorTextoLight"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:orientation="vertical">
+            android:layout_marginBottom="10dp"
+            android:text="@string/evidencia"
+            android:textColor="@color/ColorTextoBold"
+            android:textSize="23sp"
+            android:textStyle="bold" />
 
+        <Button
+            android:id="@+id/ResultEvidencia"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/ColorTextoAzulLight"
+            android:drawableLeft="@drawable/ic_baseline_camera_alt_24"
+            android:gravity="center"
+            android:text="@string/tomar_foto"
+            android:textColor="@color/white" />
 
-            <TextView
-                android:id="@+id/dialogResultado"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:gravity="center"
-                android:paddingLeft="20dp"
-                android:paddingTop="3dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="5dp"
-                android:text="@string/resultado"
-                android:textColor="@color/black"
-                android:textSize="27sp"
-                android:textStyle="bold"
-                android:tooltipText="Nombre del Paciente" />
+        <ImageView
+            android:id="@+id/imageFoto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorOnPrimary"
-                android:paddingLeft="20dp"
-                android:paddingTop="5dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="5dp"
-                android:text="@string/nombre"
-                android:textColor="@color/white"
-                android:textSize="23sp"
-                android:tooltipText="Nombre del Paciente" />
-
-            <TextView
-                android:id="@+id/textNombrePasiente2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:text="@string/nombre_paciente"
-                android:textColor="@color/colorTexto"
-                android:textSize="23sp" />
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/evidencia"
-                android:textColor="@color/colorTexto"
-                android:textSize="23sp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="10dp"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/ResultEvidencia"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:backgroundTint="@color/colorPrimaryVariant"
-                android:drawableLeft="@drawable/ic_baseline_camera_alt_24"
-                android:gravity="center"
-                android:text="@string/tomar_foto"
-                android:textColor="@color/white" />
-
-            <ImageView
-                android:id="@+id/imageFoto"
-                android:layout_width="match_parent"
-                android:layout_height="500dp"
-                android:layout_marginBottom="70dp"
-                tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
-        </LinearLayout>
-    </ScrollView>
 
     <LinearLayout
         android:id="@+id/linearLayout9"
@@ -163,7 +161,7 @@
             android:layout_marginRight="30dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:backgroundTint="@color/colorFondoOscuro"
+            android:backgroundTint="@color/ColorTextoYellow"
             android:text="@string/guardar"
             android:layout_gravity="center"
             android:drawableLeft="@drawable/ic_baseline_save_24"

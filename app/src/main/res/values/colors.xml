@@ -26,6 +26,8 @@
     <color name="ColorTextoBold">#004f59</color>
     <color name="ColorTextoYellow">#F7BE00</color>
     <color name="ColorTextoLight">#00373E</color>
+    <color name="ColorTextoAzulLight">#00AFAA</color>
+    <color name="ColorTextoGriss">#D8AFE1</color>
     <color name="ColorTextoResultado">#1E2935</color> <!-- Agregar -->
     <color name="ColorButonFoto">#1E2935</color>
     <color name="ColorAccionGuardar">#1E2935</color>

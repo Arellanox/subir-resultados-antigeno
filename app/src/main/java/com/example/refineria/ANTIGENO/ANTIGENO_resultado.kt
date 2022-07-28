@@ -11,8 +11,6 @@ import androidx.appcompat.app.AlertDialog
 import com.example.refineria.MainActivity
 import com.example.refineria.R
 import kotlinx.android.synthetic.main.activity_antigeno_resultado.*
-import kotlinx.android.synthetic.main.activity_antigeno_resultado_formulario.*
-import kotlinx.android.synthetic.main.activity_antigeno_resultado_formulario.backHome
 import kotlinx.android.synthetic.main.dialog_resultado.view.*
 
 class ANTIGENO_resultado : AppCompatActivity() {
