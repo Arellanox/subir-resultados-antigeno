@@ -3,16 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/backgroundColor">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="1dp"
-        android:background="@color/colorPrimaryVariant"
-        android:gravity="center"
+        android:layout_height="40dp"
+        android:background="@color/ColorBannerSuperiorFragment"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,9 +24,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:text="@string/antigeno"
-            android:textColor="@color/white"
-            android:textSize="30sp" />
+            android:textStyle="bold"
+            android:textColor="@color/ColorTituloFragment"
+            android:textSize="18sp"
+            android:text="@string/antigeno" />
 
     </LinearLayout>
 

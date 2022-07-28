@@ -35,16 +35,13 @@
     <string name="registrar_resultado">Registrar Resultado</string>
     <string name="perfil_de_usuario">Perfil de Usuario</string>
     <string name="resultado">Resultado</string>
+    <string name="regresar">Regresar</string>
     <string name="title_activity_antigeno_consultar_resultado">ANTIGENO_consultar_resultado</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="url_del_pdf">URL del pdf</string>
     <string name="descargar_reporte">Descargar reporte</string>
     <string name="guardar">Guardar</string>
+    <string name="prefolio">Prefolio</string>
+    <string name="agregar">Agregar</string>
+    <string name="reportePDF">Reporte de resultado</string>
+    <string name="estudio">Estudio</string>
 </resources>

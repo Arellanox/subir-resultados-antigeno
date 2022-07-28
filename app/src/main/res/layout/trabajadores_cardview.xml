@@ -5,14 +5,13 @@
     android:id="@+id/Tarjeta_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
+    android:layout_marginTop="5dp"
     tools:layout_editor_absoluteX="1dp"
     tools:layout_editor_absoluteY="85dp" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/backgroundColor"
         android:padding="10dp"
         android:orientation="vertical">
 
@@ -35,8 +34,8 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:text="@string/nombre_trabajador"
-                    android:textColor="@color/colorTexto"
-                    android:textSize="18sp"
+                    android:textColor="@color/ColorTextoBold"
+                    android:textSize="22sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -45,9 +44,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:text="Prefolio"
-                    android:textColor="@color/colorTexto2"
-                    android:textSize="15sp" />
+                    android:text="@string/prefolio"
+                    android:textColor="@color/ColorTextoYellow"
+                    android:textSize="18sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -62,8 +61,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="@string/procedencia"
-                        android:textColor="@color/colorTexto2"
-                        android:textSize="15sp" />
+                        android:textColor="@color/ColorTextoLight"
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/txtSegmento"
@@ -71,8 +70,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/segmento"
-                        android:textColor="@color/colorTexto2"
-                        android:textSize="15sp" />
+                        android:textColor="@color/ColorTextoLight"
+                        android:textSize="18sp" />
                 </LinearLayout>
 
                 <TextView
@@ -81,9 +80,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:text="2022-06-07"
-                    android:textColor="@color/colorTexto2"
-                    android:textSize="15sp" />
+                    android:hint="2022/01/03"
+                    android:textColor="@color/ColorTextoLight"
+                    android:textSize="17sp"
+                    tools:ignore="HardcodedText" />
 
             </LinearLayout>
 
@@ -107,9 +107,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:text="Agregar"
-                    android:textColor="@color/colorTexto2"
-                    android:textSize="15sp" />
+                    android:text="@string/agregar"
+                    android:textColor="@color/ColorTextoLight"
+                    android:textSize="16sp" />
             </LinearLayout>
 
         </LinearLayout>

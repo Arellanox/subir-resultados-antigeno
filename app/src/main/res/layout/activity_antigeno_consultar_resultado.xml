@@ -11,30 +11,25 @@
     <LinearLayout
         android:id="@+id/linearLayout5"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:background="@color/colorPrimaryVariant"
+        android:layout_height="40dp"
+        android:background="@color/ColorBannerSuperiorFragment"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-            android:id="@+id/backHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryVariant"
-            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
 
         <TextView
+            android:id="@+id/backHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:text="Resultado"
-            android:textColor="@color/white"
-            android:textSize="24sp" />
+            android:textStyle="bold"
+            android:textColor="@color/ColorTituloActivity"
+            android:textSize="18sp"
+            android:text="@string/regresar" />
 
     </LinearLayout>
 
@@ -44,93 +39,100 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:orientation="vertical"
-        android:paddingTop="20dp"
         android:theme="@style/OulineInput"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
-        app:layout_constraintVertical_bias="0.01999998">
-
-        <TextView
-            android:id="@+id/textView20"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Reporte de Antigeno"
-            android:textColor="@color/colorTexto"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+        app:layout_constraintTop_toBottomOf="@+id/textView20"
+        app:layout_constraintVertical_bias="0.060000002">
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorFondoOscuro"
+            android:background="@color/ColorTextoBanner"
             android:paddingLeft="20dp"
             android:paddingTop="5dp"
             android:paddingRight="20dp"
             android:paddingBottom="5dp"
             android:text="@string/nombre"
-            android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textColor="@color/ColorTextAccion"
+            android:textSize="24sp"
+            android:textStyle="bold"
             android:tooltipText="Nombre del Paciente" />
 
         <TextView
             android:id="@+id/txtNombreReporte"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="20dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:text="@string/nombre_paciente"
-            android:textColor="@color/black"
+            android:textColor="@color/ColorTextoLight"
             android:textSize="27sp"
             android:tooltipText="Nombre del Paciente" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorFondoOscuro"
+            android:background="@color/ColorTextoBanner"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="5dp"
+            android:text="@string/estudio"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:tooltipText="Nombre del Paciente" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@string/antigeno"
+            android:textColor="@color/ColorTextoYellow"
+            android:textSize="27sp"
+            android:tooltipText="Nombre del Paciente" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/ColorTextoBanner"
             android:paddingLeft="20dp"
             android:paddingTop="5dp"
             android:paddingRight="20dp"
             android:paddingBottom="5dp"
             android:text="@string/resultado"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="24sp"
+            android:textStyle="bold"
             android:tooltipText="Nombre del Paciente" />
 
         <TextView
             android:id="@+id/txtResultadoReporte"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:text="@string/resultado"
             android:textColor="@color/black"
             android:textSize="27sp"
-            android:textStyle="bold"
             android:tooltipText="Nombre del Paciente" />
-
-        <TextView
-            android:id="@+id/txtURLRespuesta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:autoLink="web"
-            android:text=""
-            android:textSize="24sp" />
-
-
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="72dp"
+        android:layout_marginBottom="36dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
@@ -142,12 +144,27 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="30dp"
             android:layout_marginBottom="10dp"
-            android:backgroundTint="#CC0000"
+            android:backgroundTint="@color/ColorBotonPDF"
             android:drawableLeft="@drawable/ic_baseline_picture_as_pdf_24"
             android:text="@string/descargar_reporte"
             android:textColor="@color/white"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/reportePDF"
+        android:textColor="@color/colorTexto"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

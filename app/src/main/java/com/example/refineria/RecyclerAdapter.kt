@@ -1,6 +1,9 @@
 package com.example.refineria
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.provider.CalendarContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -83,11 +86,14 @@ class RecyclerAdapter(var pacientesAntigenoList:List<PacientesAntigeno>, val onC
         val item = pacientesAntigenoList[i]
 
         if(item.resultado=="Positivo"){
-            viewHolder.avatar.setImageResource(R.drawable.positive);
+            viewHolder.avatar.setImageResource(R.drawable.positive)
+            viewHolder.itemResultado.setTextColor(Color.RED)
         }else if(item.resultado=="Negativo"){
-            viewHolder.avatar.setImageResource(R.drawable.negative);
+            viewHolder.avatar.setImageResource(R.drawable.negative)
+            viewHolder.itemResultado.setTextColor(Color.GREEN)
         }else{
             viewHolder.avatar.setImageResource(R.drawable.plus);
+            viewHolder.itemResultado.setTextColor(Color.BLACK)
         }
         viewHolder.render(item, onClickListener)
 

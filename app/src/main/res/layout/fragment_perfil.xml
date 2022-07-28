@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundColor"
     tools:context=".fragments.PerfilFragment">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:background="@color/colorPrimaryVariant"
+        android:layout_height="40dp"
+        android:background="@color/ColorBannerSuperiorFragment"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,8 +25,9 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:text="@string/perfil_de_usuario"
-            android:textColor="@color/white"
-            android:textSize="24sp" />
+            android:textStyle="bold"
+            android:textColor="@color/ColorTituloFragment"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <ScrollView
@@ -38,10 +38,9 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/btnSesion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias=".50"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.398">
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -100,7 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
-                android:hint="@string/example"
+                android:hint="@string/profesi_n"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
@@ -118,7 +117,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
-                android:hint="@string/example"
+                android:hint="@string/cedula"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
@@ -147,21 +146,23 @@
     <Button
         android:id="@+id/btnSesion"
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_marginBottom="40dp"
-        android:backgroundTint="@color/colorPrimaryVariant"
+        android:layout_height="70dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/ColorBotonAccion"
         android:gravity="center"
         android:text="@string/cerrar_sesi_n"
-        android:textColor="@color/white"
+        android:textColor="@color/ColorTextAccion"
+        android:drawableLeft="@drawable/ic_baseline_login_24"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="RtlHardcoded" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="158dp"
-        android:layout_height="91dp"
+        android:layout_width="wrap_content"
+        android:layout_height="90dp"
         android:layout_margin="14dp"
         android:layout_marginTop="28dp"
         android:src="@drawable/bimo"

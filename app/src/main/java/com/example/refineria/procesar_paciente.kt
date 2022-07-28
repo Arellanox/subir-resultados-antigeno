@@ -3,11 +3,8 @@ package com.example.refineria
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import com.example.refineria.ANTIGENO.ANTIGENO_consultar_resultado
-import com.example.refineria.ANTIGENO.ANTIGENO_subir_resultado
-import com.example.refineria.classes.PacientesAntigeno
-import com.example.refineria.monitoreo.MONITOREO_Cuestionario_Formulario
+import com.example.refineria.ANTIGENO.ANTIGENO_resultado
 
 class procesar_paciente : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,8 +28,8 @@ class procesar_paciente : AppCompatActivity() {
         val procedencia = bundle?.getString("procedencia")
         val edad = bundle?.getInt("edad")
 
-        if (resultado == "null"){
-            val intent = Intent(this, ANTIGENO_subir_resultado::class.java).apply {
+        if (resultado == "Agregar"){
+            val intent = Intent(this, ANTIGENO_resultado::class.java).apply {
                 putExtra("id_paciente", id_paciente)
                 putExtra("nombre", nombre)
                 putExtra("segmento", segmento)

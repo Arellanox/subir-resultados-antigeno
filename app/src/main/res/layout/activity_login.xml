@@ -4,20 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundColor"
     android:screenOrientation="portrait"
     tools:context=".Login">
 
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="273dp"
-        android:layout_height="107dp"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.198"
+        app:layout_constraintVertical_bias="0.104"
         app:srcCompat="@drawable/bimo" />
 
     <ScrollView
@@ -26,8 +26,10 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.855">
 
         <LinearLayout
             android:id="@+id/linearLayout4"
@@ -43,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Usuario"
-                android:textColor="@color/black"
+                android:textColor="@color/ColorTextoLight"
                 android:textSize="24sp"
                 tools:ignore="HardcodedText" />
 
@@ -57,7 +59,7 @@
                 android:ems="10"
                 android:gravity="center"
                 android:inputType="text"
-                android:textColor="@color/black"
+                android:textColor="@color/ColorTextoBold"
                 android:textSize="24sp"
                 android:theme="@style/OulineInput"
                 tools:ignore="SpeakableTextPresentCheck" />
@@ -67,7 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Contraseña"
-                android:textColor="@color/black"
+                android:textColor="@color/ColorTextoLight"
                 android:textSize="24sp"
                 tools:ignore="HardcodedText" />
 
@@ -81,7 +83,7 @@
                 android:ems="10"
                 android:gravity="center"
                 android:inputType="textPassword|textCapCharacters"
-                android:textColor="@color/black"
+                android:textColor="@color/ColorTextoBold"
                 android:textSize="24sp"
                 android:theme="@style/OulineInput"
                 tools:ignore="SpeakableTextPresentCheck" />
@@ -95,9 +97,9 @@
         android:id="@+id/linearLayout9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -126,7 +128,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="30dp"
             android:layout_marginBottom="10dp"
-            android:backgroundTint="@color/colorFondoOscuro"
+            android:backgroundTint="@color/ColorBotonAccion"
             android:text="@string/inicia_sesi_n"
             android:textColor="@color/white"
             android:textSize="16sp"
@@ -139,7 +141,7 @@
         android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@color/colorFondoOscuro"
+        android:background="@color/ColorNavbarPrincipal"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"

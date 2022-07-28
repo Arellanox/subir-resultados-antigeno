@@ -12,4 +12,24 @@
     <color name="colorOnPrimary">#3A5268</color>
     <color name="backgroundColor">#E5E7E9</color>
     <color name="backgroundColorOscuro">#DFDFDF</color>
+
+    <color name="ColorFondoActivity">#1E2935</color>
+    <color name="ColorFondoFragments">#1E2935</color>
+    <color name="ColorBannerSuperiorFragment">#FFFFFF</color>
+    <color name="ColorTituloFragment">#00373E</color>
+    <color name="ColorBannerSuperiorActivity">#FFFFFF</color>
+    <color name="ColorTituloActivity">#00373E</color>
+    <color name="ColorBotonAccion">#F7BE00</color> <!-- Boton de aceptar o de regresar? -->
+    <color name="ColorTextAccion">#FFFFFF</color>
+    <color name="ColorBannerTexto">#00AFAA</color>
+    <color name="ColorTextoBanner">#004f59</color>
+    <color name="ColorTextoBold">#004f59</color>
+    <color name="ColorTextoYellow">#F7BE00</color>
+    <color name="ColorTextoLight">#00373E</color>
+    <color name="ColorTextoResultado">#1E2935</color> <!-- Agregar -->
+    <color name="ColorButonFoto">#1E2935</color>
+    <color name="ColorAccionGuardar">#1E2935</color>
+    <color name="ColorBotonPDF">#C10000</color>
+    <color name="ColorNavbarPrincipal">#004f59</color>
+
 </resources>

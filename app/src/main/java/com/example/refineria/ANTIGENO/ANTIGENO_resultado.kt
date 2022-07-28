@@ -10,21 +10,21 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.refineria.MainActivity
 import com.example.refineria.R
+import kotlinx.android.synthetic.main.activity_antigeno_resultado.*
 import kotlinx.android.synthetic.main.activity_antigeno_resultado_formulario.*
-import kotlinx.android.synthetic.main.activity_antigeno_subir_resultado.*
-import kotlinx.android.synthetic.main.activity_antigeno_subir_resultado.backHome
+import kotlinx.android.synthetic.main.activity_antigeno_resultado_formulario.backHome
 import kotlinx.android.synthetic.main.dialog_resultado.view.*
 
-class ANTIGENO_subir_resultado : AppCompatActivity() {
-
-    var nombre_label:TextView? = null
-    var procedencia_label:TextView?= null
-    var fecha_registro_label:TextView?= null
-    var camper_label:TextView? = null
-    var sexo_label:TextView? = null
+class ANTIGENO_resultado : AppCompatActivity() {
+    var nombre_label: TextView? = null
+    var procedencia_label: TextView?= null
+    var fecha_registro_label: TextView?= null
+    var camper_label: TextView? = null
+    var sexo_label: TextView? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_antigeno_subir_resultado)
+        setContentView(R.layout.activity_antigeno_resultado)
+
 
         val bundle = intent.extras
         val id_paciente = bundle?.getInt("id_paciente")
@@ -67,7 +67,7 @@ class ANTIGENO_subir_resultado : AppCompatActivity() {
     private fun alertDialog(resultado:String, nombre: String?,edad:String?, procedencia:String?, segmento: String?, id_paciente: Int?){
 
         //Asignar valores del dialog
-        val builder = AlertDialog.Builder(this@ANTIGENO_subir_resultado)
+        val builder = AlertDialog.Builder(this@ANTIGENO_resultado)
         val view = layoutInflater.inflate(R.layout.dialog_resultado, null)
 
         //Colocar valores al text
@@ -106,4 +106,5 @@ class ANTIGENO_subir_resultado : AppCompatActivity() {
         //    dialog.dismiss()
         //}
     }
+
 }

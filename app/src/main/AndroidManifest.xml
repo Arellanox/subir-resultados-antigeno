@@ -11,16 +11,18 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-
     <application
         android:name=".sharedpreference.RefineriaApplication"
         android:allowBackup="true"
-        android:icon="@drawable/bimo_logo_app"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/bimo_logo_app"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.REFINERIA"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ANTIGENO.ANTIGENO_resultado"
+            android:exported="false" />
         <activity
             android:name=".ANTIGENO.ANTIGENO_consultar_resultado"
             android:exported="false"
@@ -29,10 +31,6 @@
         <activity
             android:name=".ANTIGENO.ANTIGENO_resultado_formulario"
             android:exported="false" />
-        <activity
-            android:name=".ANTIGENO.ANTIGENO_subir_resultado"
-            android:exported="false"
-            android:launchMode="singleInstance" />
         <activity
             android:name=".procesar_paciente"
             android:exported="false" />
