@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.refineria.MainActivity
 import com.example.refineria.R
+import com.example.refineria.classes.historial
 import kotlinx.android.synthetic.main.activity_antigeno_resultado.*
 import kotlinx.android.synthetic.main.dialog_resultado.view.*
 
@@ -19,6 +20,7 @@ class ANTIGENO_resultado : AppCompatActivity() {
     var fecha_registro_label: TextView?= null
     var camper_label: TextView? = null
     var sexo_label: TextView? = null
+    val a = historial()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_antigeno_resultado)
@@ -34,6 +36,9 @@ class ANTIGENO_resultado : AppCompatActivity() {
         val procedencia = bundle?.getString("procedencia")
         val edad = bundle?.getInt("edad")
 
+
+        a.historialapp(this,"Cargó la vista de subir resultado del paciente ${nombre} (${id_paciente}) en android")
+
         nombre_label = findViewById(R.id.textNombrePasiente)
         procedencia_label = findViewById(R.id.textProcedencia)
         fecha_registro_label = findViewById(R.id.textFechaIngreso)
@@ -48,6 +53,7 @@ class ANTIGENO_resultado : AppCompatActivity() {
 
         backHome.setOnClickListener{
             startActivity(Intent(this, MainActivity::class.java))
+            a.historialapp(this,"Canceló subir resultado del paciente ${textNombrePasiente.text} (${textFechaIngreso.text}) en android")
             finish()
         }
 
@@ -98,6 +104,7 @@ class ANTIGENO_resultado : AppCompatActivity() {
             this.startActivity(intent)
             finish()
             dialog.dismiss()
+            a.historialapp(this,"Subirá el resultado como ${resultado} del paciente ${nombre} (${textFechaIngreso.text}) en android")
         }
 
         //view.btnDialogCancelar.setOnClickListener {
@@ -105,4 +112,8 @@ class ANTIGENO_resultado : AppCompatActivity() {
         //}
     }
 
+    override fun onBackPressed() {
+        a.historialapp(this,"Canceló subir resultado del paciente ${textNombrePasiente.text} (${textFechaIngreso.text}) en android")
+        finish()
+    }
 }

@@ -23,6 +23,7 @@ import com.example.refineria.RecyclerAdapter
 import com.example.refineria.classes.Fotos
 import com.example.refineria.classes.PacientesAntigeno
 import com.example.refineria.classes.PacientesAntigenoProvider
+import com.example.refineria.classes.historial
 import com.example.refineria.network.MySingleton
 import com.example.refineria.procesar_paciente
 import com.example.refineria.sharedpreference.RefineriaApplication.Companion.prefs
@@ -34,7 +35,7 @@ import java.lang.ClassCastException
 import kotlin.collections.contains as contains1
 
 class Antigeno : Fragment(), MainActivity.refreshList {
-
+    val a = historial()
     private var layoutManager: RecyclerView.LayoutManager? = null
     private var adapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>? = null
     var antigenos = PacientesAntigenoProvider()
@@ -45,6 +46,7 @@ class Antigeno : Fragment(), MainActivity.refreshList {
     ): View?{
         val view = inflater.inflate(R.layout.fragment_antigeno, container, false)
         antigenos.obtenerListaPacientesAntigeno(requireContext())
+        a.historialapp(requireContext(),"Cargó los pacientes de antigeno en android con el camper: ${prefs.getLugarTomaUsuario()}")
         listarPacientes()
 
         view.busqueda.setOnQueryTextFocusChangeListener{v, hasFocus ->

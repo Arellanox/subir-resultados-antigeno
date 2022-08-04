@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.fragment_perfil.view.*
 
 class PerfilFragment : Fragment() {
 
+    val a = historial()
     @SuppressLint("Range")
     override fun onCreateView(
         inflater: LayoutInflater, container : ViewGroup?,
@@ -26,6 +27,7 @@ class PerfilFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_perfil, container, false)
 
+        a.historialapp(requireContext(),"Cargó la vista de perfil en android")
         view.txtUsuario.setText(prefs.getUsernameUsuario())
         view.txtNombre.setText(prefs.getNombreUsuario())
         view.txtProfesion.setText(prefs.getProfesionUsuario())

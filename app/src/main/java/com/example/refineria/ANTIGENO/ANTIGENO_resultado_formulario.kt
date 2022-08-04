@@ -21,9 +21,12 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.example.refineria.DatePickerFragment
 import com.example.refineria.MainActivity
 import com.example.refineria.R
+import com.example.refineria.classes.historial
 import com.example.refineria.network.MySingleton
 import com.example.refineria.sharedpreference.RefineriaApplication.Companion.prefs
+import kotlinx.android.synthetic.main.activity_antigeno_resultado.*
 import kotlinx.android.synthetic.main.activity_antigeno_resultado_formulario.*
+import kotlinx.android.synthetic.main.activity_antigeno_resultado_formulario.backHome
 import org.json.JSONObject
 import java.io.ByteArrayOutputStream
 import java.io.IOException
@@ -36,7 +39,7 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
     val permisoCamara = android.Manifest.permission.CAMERA
     val permisoWriteStorage = android.Manifest.permission.WRITE_EXTERNAL_STORAGE
     val permisoReadStorage = android.Manifest.permission.READ_EXTERNAL_STORAGE
-
+    val a = historial()
     @SuppressLint("SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +48,8 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
         val id_paciente = bundle?.getInt("ID_PACIENTE")
         val nombre = bundle?.getString("NOMBRE")
         val resultado = bundle?.getString("RESULTADO")
+
+        a.historialapp(this,"Cargó vista para subir imagen de resultado del paciente ${nombre} (${id_paciente}) en android")
 
         textNombrePasiente2.text = nombre.toString()
         TxtResultadoGuardar.text = resultado.toString()
@@ -63,6 +68,7 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
 
         backHome.setOnClickListener{
             startActivity(Intent(this,MainActivity::class.java))
+            a.historialapp(this,"Canceló subir resultado en la vista de imagen del paciente ${nombre} (${id_paciente}) en android")
             finish()
         }
         ResultEvidencia.setOnClickListener {
@@ -82,7 +88,7 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
                 }
                 val imageBase64 = encodeImage(bitmap)
                 //val url = prefs.getLoginApi()
-                val url = "http://bimotest.com/Bimo-lab_test/movil/antigenos/api/subir_resultado.php"
+                val url = "https://bimo-lab.com/movil/antigenos/api/subir_resultado.php"
                 val result = JSONObject()
                 result.put("id_paciente",id_paciente)
                 result.put("id_usuario", prefs.getIdUsuario())
@@ -100,6 +106,7 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
                         startActivity(Intent(this,MainActivity::class.java))
                         finish()
                         Toast.makeText(this,"Resultado guardado", Toast.LENGTH_LONG).show()
+                        a.historialapp(this,"Subió resultado del paciente ${nombre} (${id_paciente}) en android")
                     }else{
                         Toast.makeText(this,"Error: Mostrar error de php?", Toast.LENGTH_LONG).show()
                     }
@@ -113,6 +120,8 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
             }else{
                 Toast.makeText(this,"Imagen no insertada", Toast.LENGTH_LONG).show()
             }
+
+
         }
     }
 
@@ -248,5 +257,10 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onBackPressed() {
+        a.historialapp(this,"Canceló subir resultado en la vista de imagen del paciente ${textNombrePasiente.text} en android")
+        finish()
     }
 }

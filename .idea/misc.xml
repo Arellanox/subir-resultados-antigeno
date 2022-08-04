@@ -9,14 +9,18 @@
         <entry key="..\:/Users/luisg/AndroidStudioProjects/subir-resultados-antigeno/app/src/main/res/drawable/ic_baseline_arrow_circle_left_24.xml" value="0.135" />
         <entry key="..\:/Users/luisg/AndroidStudioProjects/subir-resultados-antigeno/app/src/main/res/drawable/rectangulo.xml" value="0.1" />
         <entry key="..\:/Users/luisg/AndroidStudioProjects/subir-resultados-antigeno/app/src/main/res/layout/activity_antigeno_consultar_resultado.xml" value="0.26875" />
-        <entry key="..\:/Users/luisg/AndroidStudioProjects/subir-resultados-antigeno/app/src/main/res/layout/activity_antigeno_resultado.xml" value="0.1" />
+        <entry key="..\:/Users/luisg/AndroidStudioProjects/subir-resultados-antigeno/app/src/main/res/layout/activity_antigeno_resultado.xml" value="0.25" />
+        <entry key="..\:/Users/luisg/AndroidStudioProjects/subir-resultados-antigeno/app/src/main/res/layout/activity_antigeno_resultado_formulario.xml" value="0.33" />
         <entry key="..\:/Users/luisg/AndroidStudioProjects/subir-resultados-antigeno/app/src/main/res/layout/activity_antigeno_subir_resultado.xml" value="0.1" />
         <entry key="..\:/Users/luisg/AndroidStudioProjects/subir-resultados-antigeno/app/src/main/res/layout/activity_login.xml" value="0.26875" />
         <entry key="..\:/Users/luisg/AndroidStudioProjects/subir-resultados-antigeno/app/src/main/res/layout/activity_main.xml" value="0.26875" />
+        <entry key="..\:/Users/luisg/AndroidStudioProjects/subir-resultados-antigeno/app/src/main/res/layout/dialog_resultado.xml" value="0.26875" />
         <entry key="..\:/Users/luisg/AndroidStudioProjects/subir-resultados-antigeno/app/src/main/res/layout/fragment_antigeno.xml" value="0.26875" />
         <entry key="..\:/Users/luisg/AndroidStudioProjects/subir-resultados-antigeno/app/src/main/res/layout/fragment_perfil.xml" value="0.2" />
         <entry key="..\:/Users/luisg/AndroidStudioProjects/subir-resultados-antigeno/app/src/main/res/layout/trabajadores_cardview.xml" value="0.26875" />
         <entry key="..\:/Users/luisg/AndroidStudioProjects/subir-resultados-antigeno/app/src/main/res/menu/menu.xml" value="0.1398148148148148" />
+        <entry key="..\:/Users/luisg/AndroidStudioProjects/subir-resultados-antigeno/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="..\:/Users/luisg/AndroidStudioProjects/subir-resultados-antigeno/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2715" />
         <entry key="..\:/Users/luisg/AndroidStudioProjects/subir-resultados-antigeno/subir-resultados-antigeno/app/src/main/res/drawable-v24/ic_baseline_view_list_24.xml" value="0.2735" />
         <entry key="..\:/Users/luisg/AndroidStudioProjects/subir-resultados-antigeno/subir-resultados-antigeno/app/src/main/res/drawable/custom_searchview.xml" value="0.225" />
         <entry key="..\:/Users/luisg/AndroidStudioProjects/subir-resultados-antigeno/subir-resultados-antigeno/app/src/main/res/layout/activity_antigeno_consultar_resultado.xml" value="0.26875" />

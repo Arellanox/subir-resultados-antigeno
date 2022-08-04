@@ -12,6 +12,7 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.example.refineria.classes.PacientesAntigenoProvider
 import com.example.refineria.classes.Pafre
 import com.example.refineria.classes.Usuarios
+import com.example.refineria.classes.historial
 import com.example.refineria.database.SQLite
 import com.example.refineria.network.MySingleton
 import com.example.refineria.sharedpreference.RefineriaApplication.Companion.prefs
@@ -20,11 +21,18 @@ import org.json.JSONObject
 
 
 class Login : AppCompatActivity() {
+    val a = historial()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         checkUserValues()
         initUI()
+
+
+        a.getExternalIpAddress(this)
+        a.modeloTelefono()
+
+
         //txtPassword.filters = arrayOf<InputFilter>(AllCaps())
         //txtUsuario.filters = arrayOf<InputFilter>(AllCaps())
     }
@@ -72,6 +80,7 @@ class Login : AppCompatActivity() {
                         prefs.saveLugarTomaUsuario(datos.getString("lugar_de_toma"))
                         goToDetail()
                         Log.d("pref n ombre", prefs.getNombreUsuario())
+
                     }else{
                         Toast.makeText(this,"Error: Usuario y/o password incorrectos",Toast.LENGTH_LONG).show()
                     }
@@ -89,7 +98,7 @@ class Login : AppCompatActivity() {
 
     fun goToDetail(){
 
-
+        a.historialapp(this,"Entró a la aplicación android")
         var usuario = prefs.getUsernameUsuario()
 
         startActivity(Intent(this, MainActivity::class.java))

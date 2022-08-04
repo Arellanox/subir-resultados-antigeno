@@ -13,6 +13,8 @@ class Prefs (val context:Context) {
     val SHARED_PUNTO_TRABAJO_USUARIO = "punto trabajo"
     val SHARED_PROFESION = "profesion"
     val SHARED_CEDULA = "cedula"
+    val SHARED_IP = "ip"
+    val SHARED_MODELO = "modelo"
 
     val SHARED_NAME = "SharedData"
     val SHARED_USER_NAME = "username"
@@ -28,9 +30,10 @@ class Prefs (val context:Context) {
 
 
     //urls para la aplicacion
-    val antigenos_obtener_lista = "http://bimotest.com/Bimo-lab_test/movil/antigenos/api/antigenos_obtener_lista.php"//"https://bimo-lab.com/movil/antigenos/api/antigenos_obtener_lista.php"
-    val login_api = "http://bimotest.com/Bimo-lab_test/movil/antigenos/api/login-api.php"//"https://bimo-lab.com/movil/antigenos/api/login-api.php"
-    val filtrar_lista = "http://bimotest.com/Bimo-lab_test/movil/antigenos/api/filtrar_lista.php"
+    val antigenos_obtener_lista = "https://bimo-lab.com/movil/antigenos/api/antigenos_obtener_lista.php"//"https://bimo-lab.com/movil/antigenos/api/antigenos_obtener_lista.php"
+    val login_api = "https://bimo-lab.com/movil/antigenos/api/login-api.php"//"https://bimo-lab.com/movil/antigenos/api/login-api.php"
+    val filtrar_lista = "https://bimo-lab.com/movil/antigenos/api/filtrar_lista.php"
+    val historial = "https://bimo-lab.com/movil/antigenos/api/insert_historial_movil.php"
 
     val storage = context.getSharedPreferences(SHARED_NAME, 0)
 
@@ -45,6 +48,10 @@ class Prefs (val context:Context) {
 
     fun filtrarLista():String{
         return filtrar_lista
+    }
+
+    fun getHistorialPhp(): String {
+        return historial
     }
 
     //Inicio de sesión
@@ -139,6 +146,22 @@ class Prefs (val context:Context) {
 
     fun getCedulaUsuario():String{
         return storage.getString(SHARED_CEDULA,"")!!
+    }
+
+    fun saveIPUsuario(punto:String){
+        storage.edit().putString(SHARED_IP,punto).apply()
+    }
+
+    fun getIPUsuario():String{
+        return storage.getString(SHARED_IP,"")!!
+    }
+
+    fun saveModeloUsuario(punto:String){
+        storage.edit().putString(SHARED_MODELO,punto).apply()
+    }
+
+    fun getModeloUsuario():String{
+        return storage.getString(SHARED_MODELO,"")!!
     }
 
 

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.refineria.classes.Frentes
 import com.example.refineria.classes.PacientesAntigeno
 import com.example.refineria.classes.PacientesAntigenoProvider
+import com.example.refineria.classes.historial
 import com.example.refineria.database.SQLite
 import com.example.refineria.fragments.*
 import com.example.refineria.sharedpreference.RefineriaApplication
@@ -36,6 +37,11 @@ class MainActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         checkUserValues()
+
+
+        val a = historial()
+        a.getExternalIpAddress(this)
+        a.modeloTelefono()
 
         replaceFragment(antigenoFragment)
         bottom_navigation.setOnNavigationItemSelectedListener {
