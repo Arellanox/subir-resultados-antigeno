@@ -260,7 +260,7 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        a.historialapp(this,"Canceló subir resultado en la vista de imagen del paciente ${textNombrePasiente.text} en android")
+        a.historialapp(this,"Canceló subir resultado en la vista de imagen del paciente ${textNombrePasiente2.text} en android")
         finish()
     }
 }
