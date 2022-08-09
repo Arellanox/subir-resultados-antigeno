@@ -100,9 +100,9 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
                     //Toast.makeText(this,"respuesta: ${response.toString()}",Toast.LENGTH_LONG).show()
                     Log.d("respuesta",response.toString())
                     val json = response.getJSONObject("response");
-                    val codigo = json.getInt("code")
+                    val codigo = json.getString("code")
 
-                    if (codigo==1){
+                    if (codigo=="enviado"){
                         startActivity(Intent(this,MainActivity::class.java))
                         finish()
                         Toast.makeText(this,"Resultado guardado", Toast.LENGTH_LONG).show()
