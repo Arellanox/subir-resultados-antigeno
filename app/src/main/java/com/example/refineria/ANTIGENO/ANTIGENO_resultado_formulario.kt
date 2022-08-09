@@ -108,7 +108,8 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
                         Toast.makeText(this,"Resultado guardado", Toast.LENGTH_LONG).show()
                         a.historialapp(this,"Subió resultado del paciente ${nombre} (${id_paciente}) en android")
                     }else{
-                        Toast.makeText(this,"Error: Mostrar error de php?", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this,codigo.toString(), Toast.LENGTH_LONG).show()
+                        Log.d("sql", codigo.toString())
                     }
 
                 },{
