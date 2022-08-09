@@ -110,6 +110,7 @@ class ANTIGENO_resultado_formulario : AppCompatActivity() {
                     }else{
                         Toast.makeText(this,codigo.toString(), Toast.LENGTH_LONG).show()
                         Log.d("sql", codigo.toString())
+                        btnSubirResultado.isEnabled = true
                     }
 
                 },{
